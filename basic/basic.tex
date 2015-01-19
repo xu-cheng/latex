@@ -1,0 +1,34 @@
+\RequirePackage{iftex}
+\RequirePackage{ifthen}
+\RequirePackage{xkeyval}
+
+% Font setting
+\RequirePackage{fontspec}
+\setmainfont[Ligatures={Common,TeX}]{Tex Gyre Termes}
+\setsansfont[Ligatures={Common,TeX}]{Helvetica Neue}
+\setmonofont{CMU Typewriter Text}
+\defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+
+% Linespread setting
+\RequirePackage{interfaces-LaTeX}
+\changefont{linespread=1.2}
+
+% Paper size setting
+\pdfpagewidth=\paperwidth
+\pdfpageheight=\paperheight
+
+% Indent of paragraph and skip between paragraphs
+\RequirePackage{indentfirst}
+\setlength{\parindent}{2em}
+\setlength{\parskip}{0pt plus 2pt minus 1pt}
+
+% hyperref setting
+\RequirePackage[unicode]{hyperref}
+\definecolor{@hyperreflinkred}{RGB}{128,23,31}
+\hypersetup{
+  bookmarksnumbered=true,
+  bookmarksopen=true,
+  bookmarksopenlevel=3,
+  colorlinks=true,
+  allcolors=@hyperreflinkred
+}
