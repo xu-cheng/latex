@@ -56,6 +56,7 @@ class LaTeXTemplate
 
   def save(ext=".cls")
     file = OUTPUT_DIR/(@name+ext)
+    puts "generate template to #{file}."
     File.open(file, "w") {|f| f.write(render) }
   end
 end
