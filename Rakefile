@@ -13,7 +13,7 @@ end
 
 class LaTeXTemplate
   attr_accessor :name, :category
-  attr_reader :input_path, :template, :date
+  attr_reader :template, :date
 
   def initialize(name, category, input_path, date=Time.now)
     @name = name
