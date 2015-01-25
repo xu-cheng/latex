@@ -1,0 +1,14 @@
+<%= license %>
+
+\LoadClass[12pt, a4paper]{article}
+
+<%= input "./common/basic.tex" %>
+<%= input "./common/extend.tex" %>
+
+% Set pdfinfo.
+\hypersetup{
+  pdfinfo={
+    Template.name={<%= name %>}
+    Template.category={<%= category.to_s %>}
+  }
+}
