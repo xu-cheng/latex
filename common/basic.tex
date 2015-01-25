@@ -37,8 +37,76 @@
   colorlinks=true,
   allcolors=@hyperreflinkred,
   pdfinfo={
+    Template.name={<%= name %>}
     Template.author={Xu Cheng <xucheng@me.com>},
-    Template.url={https://github.com/xu-cheng/latex},
+    Template.category={<%= category.to_s %>}
     Template.date={<%= date %>}
+    Template.url={https://github.com/xu-cheng/latex},
   }
+}
+
+% Math related packages
+\RequirePackage{amsmath,amssymb,amsfonts}
+\RequirePackage[amsmath,amsthm,hyperref,thref]{ntheorem}
+\RequirePackage{fancynum}
+\setfnumgsym{\,}
+\RequirePackage[lined,boxed,linesnumbered,ruled,vlined,algosection]{algorithm2e}
+
+% Picture related packages
+\RequirePackage[all]{xy}
+\RequirePackage{overpic}
+\RequirePackage{graphicx,caption,subcaption}
+
+% Table related packages
+\RequirePackage{array}
+\RequirePackage{tabu}
+\RequirePackage{booktabs}
+\RequirePackage{multirow}
+\newcommand{\tabincell}[2]{\begin{tabular}{@{}#1@{}}#2\end{tabular}}
+
+
+% Load packages
+\RequirePackage{etoolbox}
+\RequirePackage{datenumber}
+
+% Equation style
+\allowdisplaybreaks[4]
+
+% Skip between equation and context
+\abovedisplayskip=10bp plus 2bp minus 2bp
+\abovedisplayshortskip=10bp plus 2bp minus 2bp
+\belowdisplayskip=\abovedisplayskip
+\belowdisplayshortskip=\abovedisplayshortskip
+
+% Theorem style
+\theoremnumbering{arabic}
+\theoremseparator{:}
+\theorempreskip{1.2ex plus 0ex minus 1ex}
+\theorempostskip{1.2ex plus 0ex minus 1ex}
+\theoremheaderfont{\normalfont\bfseries}
+\theoremsymbol{}
+\def\proofname{\textbf{Proof}}
+
+% Floating objects style
+\setlength{\intextsep}{0.7\baselineskip plus 0.1\baselineskip minus 0.1\baselineskip}
+\setlength{\textfloatsep}{0.8\baselineskip plus 0.1\baselineskip minus 0.2\baselineskip}
+\renewcommand{\textfraction}{0.15}
+\renewcommand{\topfraction}{0.85}
+\renewcommand{\bottomfraction}{0.65}
+\renewcommand{\floatpagefraction}{0.60}
+
+% Caption style
+\DeclareCaptionFont{@captionfont}{\changefont{size=11pt}}
+\DeclareCaptionLabelFormat{@caplabel}{#1~#2}
+\captionsetup{
+  font=@captionfont,
+  labelformat=@caplabel,
+  format=hang,
+  labelsep=quad,
+  skip=12pt
+}
+
+% Utility function
+\def\email#1{
+  \href{mailto:#1}{\texttt{#1}}
 }

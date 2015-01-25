@@ -1,0 +1,96 @@
+<%= license %>
+
+\LoadClass[12pt,utf8,compress,mathserif,noamsthm,xcolor=table]{beamer}
+
+<%= input "./common/basic.tex" %>
+
+% beamer only packages
+\RequirePackage{pgf,pgfarrows,pgfnodes,pgfautomata,pgfheaps,pgfshade}
+
+% Variables Setting
+\let\@oldtitle\title
+\DeclareDocumentCommand\title{o m}
+{
+  \IfNoValueTF{#1}{
+    \@oldtitle{#2}
+  }{
+    \@oldtitle[#1]{#2}
+  }
+  \hypersetup{pdftitle={#2}}
+}
+\title{}
+
+\let\@oldauthor\author
+\DeclareDocumentCommand\author{o +m}
+{
+  \IfNoValueTF{#1}{
+    \@oldauthor{#2}
+     \hypersetup{pdfauthor={#2}}
+  }{
+    \@oldauthor[#1]{#2}
+    \hypersetup{pdfauthor={#1}}
+  }
+}
+\author{}
+
+\let\@olddate\date
+\DeclareDocumentCommand\date{m g g}
+{
+  \IfNoValueTF{#2}{
+    \@olddate{#1} % only one argument
+  }{
+    \{#3}{ % two arguments
+      \setdate{#1}{#2}{1}
+      \@olddate{\datemonthname~\thedateyear}
+    }{  % three arguments
+      \setdate{#1}{#2}{#3}
+      \@olddate{\datedate}
+    }
+  }
+}
+\setdatetoday
+\date{\thedateyear}{\thedatemonth}{\thedateday}
+
+% Beamer style
+\usetheme{default}
+
+% Equation numbering style
+\numberwithin{equation}{section}
+
+% Theorem style
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{axiom}{Axiom}[section]
+\newtheorem{corollary}{Corollary}[section]
+\newtheorem{exercise}{Exercise}[section]
+\newtheorem{example}{Example}[section]
+
+% Beamer TOC
+\def\PrintTOC{
+  \section*{}
+  \begin{frame}{\contentsname}
+  \pdfbookmark{\contentsname}{\contentsname}
+  \tableofcontents[subsectionstyle=hide]
+  \end{frame}
+}
+\newif\if@TOCAtBeginSection
+\@TOCAtBeginSectiontrue
+\def\EnableTOCAtBeginSection{\@TOCAtBeginSectiontrue}
+\def\DisableTOCAtBeginSection{\@TOCAtBeginSectionfalse}
+\AtBeginSection[] {
+\if@TOCAtBeginSection
+  \begin{frame}{\secname}
+  \tableofcontents[sectionstyle=show/shaded,subsectionstyle=hide]
+  \end{frame}
+\else\fi
+}
+\AtBeginSubsection[] {
+\if@TOCAtBeginSection
+  \begin{frame}{\secname}{\subsecname}
+  \tableofcontents[sectionstyle=show/hide,subsectionstyle=show/shaded/hide,subsubsectionstyle=hide]
+  \end{frame}
+\else\fi
+}

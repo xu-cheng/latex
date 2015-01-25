@@ -5,10 +5,16 @@
 <%= input "./common/basic.tex" %>
 <%= input "./common/extend.tex" %>
 
-% Set pdfinfo.
-\hypersetup{
-  pdfinfo={
-    Template.name={<%= name %>}
-    Template.category={<%= category.to_s %>}
-  }
-}
+% Equation numbering style
+\numberwithin{equation}{section}
+
+% Theorem style
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{axiom}{Axiom}[section]
+\newtheorem{corollary}{Corollary}[section]
+\newtheorem{exercise}{Exercise}[section]
+\newtheorem{example}{Example}[section]

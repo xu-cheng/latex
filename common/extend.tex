@@ -1,0 +1,82 @@
+% Page geometry
+\RequirePackage{geometry}
+\geometry{
+  a4paper,
+  top=1.2in,
+  bottom=1.2in,
+  left=1in,
+  right=1in,
+  includefoot
+}
+
+% Load more packages
+\RequirePackage{tabularx}
+\RequirePackage{ltxtable}
+\RequirePackage[inline]{enumitem}
+\RequirePackage{titlesec}
+\RequirePackage{titletoc}
+\RequirePackage{tocvsec2}
+\RequirePackage{fancyhdr}
+\RequirePackage{afterpage}
+\RequirePackage{datenumber}
+\RequirePackage{appendix}
+\RequirePackage[titles]{tocloft}
+\RequirePackage{xstring}
+\RequirePackage{perpage}
+
+% Variables setting
+\def\title#1{\gdef\@title{#1}\hypersetup{pdftitle={#1}}}
+\title{}
+
+\def\author#1{\gdef\@author{#1}\hypersetup{pdfauthor={#1}}}
+\author{}
+
+% Section&TOC style
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{1}
+\contentsmargin{2.0em}
+\titleformat*{\section}{\bfseries\changefont{size=16pt}}
+\titlespacing*{\section}{0pt}{18pt}{6pt}
+\titleformat*{\subsection}{\bfseries\changefont{size=14pt}}
+\titlespacing*{\subsection}{0pt}{12pt}{6pt}
+\titleformat*{\subsubsection}{\bfseries\changefont{size=13pt}}
+\titlespacing*{\subsubsection}{0pt}{12pt}{6pt}
+\newskip\@oldcftbeforechapskip
+\@oldcftbeforechapskip=\cftbeforechapskip
+\newskip\@oldcftbeforesecskip
+\@oldcftbeforesecskip=\cftbeforesecskip
+\let\@oldl@chapter\l@chapter
+\let\@oldl@section\l@section
+\let\@oldl@subsection\l@subsection
+\def\l@chapter#1#2{\@oldl@chapter{#1}{#2}\cftbeforechapskip=3pt}
+\def\l@section#1#2{\@oldl@section{#1}{#2}\cftbeforechapskip=\@oldcftbeforechapskip\cftbeforesecskip=3pt}
+\def\l@subsection#1#2{\@oldl@subsection{#1}{#2}\cftbeforesecskip=\@oldcftbeforesecskip}
+\renewcommand*\cftfigpresnum{\figurename~}
+\newlength{\@cftfignumwidth@tmp}
+\settowidth{\@cftfignumwidth@tmp}{\cftfigpresnum}
+\addtolength{\cftfignumwidth}{\@cftfignumwidth@tmp}
+\renewcommand{\cftfigaftersnumb}{\quad~}
+\renewcommand*\cfttabpresnum{\tablename~}
+\newlength{\@cfttabnumwidth@tmp}
+\settowidth{\@cfttabnumwidth@tmp}{\cfttabpresnum}
+\addtolength{\cfttabnumwidth}{\@cfttabnumwidth@tmp}
+\renewcommand{\cfttabaftersnumb}{\quad~}}
+
+% Head&Foot style
+\let\ps@plain\ps@fancy
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\fancyfoot[C]{\thepage}
+
+% List style
+\setlist{noitemsep,partopsep=0pt,topsep=.8ex}
+\setlist[1]{labelindent=\parindent}
+\setlist[enumerate,1]{label=\arabic*.,ref=\arabic*}
+\setlist[enumerate,2]{label*=\arabic*,ref=\theenumi.\arabic*}
+\setlist[enumerate,3]{label=\emph{\alph*}),ref=\theenumii\emph{\alph*}}
+\setlist[description]{font=\bfseries}
+
+% Footer style
+\MakePerPage{footnote}
