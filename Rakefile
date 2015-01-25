@@ -54,6 +54,18 @@ class LaTeXTemplate
     EOS
   end
 
+  def chapter_defined?
+    [:book, :report].include? @category
+  end
+
+  def top_level
+    case @category
+    when :book, :report; "chapter"
+    when :article, :beamer; "section"
+    else raise
+    end
+  end
+
   def save(ext=".cls")
     file = OUTPUT_DIR/(@name+ext)
     puts "generate template to #{file}."

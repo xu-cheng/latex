@@ -42,7 +42,8 @@
     Template.category={<%= category.to_s %>}
     Template.date={<%= date %>}
     Template.url={https://github.com/xu-cheng/latex},
-  }
+  },
+  <% if category == :beamer %>pdfpagemode={FullScreen}<% else %>pdfstartview={XYZ null null 1}<% end %>
 }
 
 % Math related packages
@@ -64,13 +65,13 @@
 \RequirePackage{multirow}
 \newcommand{\tabincell}[2]{\begin{tabular}{@{}#1@{}}#2\end{tabular}}
 
-
 % Load packages
 \RequirePackage{etoolbox}
 \RequirePackage{datenumber}
 
 % Equation style
 \allowdisplaybreaks[4]
+\numberwithin{equation}{<%= top_level %>}
 
 % Skip between equation and context
 \abovedisplayskip=10bp plus 2bp minus 2bp
@@ -86,6 +87,15 @@
 \theoremheaderfont{\normalfont\bfseries}
 \theoremsymbol{}
 \def\proofname{\textbf{Proof}}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[<%= top_level %>]
+\newtheorem{proposition}{Proposition}[<%= top_level %>]
+\newtheorem{lemma}{Lemma}[<%= top_level %>]
+\newtheorem{theorem}{Theorem}[<%= top_level %>]
+\newtheorem{axiom}{Axiom}[<%= top_level %>]
+\newtheorem{corollary}{Corollary}[<%= top_level %>]
+\newtheorem{exercise}{Exercise}[<%= top_level %>]
+\newtheorem{example}{Example}[<%= top_level %>]
 
 % Floating objects style
 \setlength{\intextsep}{0.7\baselineskip plus 0.1\baselineskip minus 0.1\baselineskip}

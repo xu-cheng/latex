@@ -41,15 +41,21 @@
 \titlespacing*{\subsection}{0pt}{12pt}{6pt}
 \titleformat*{\subsubsection}{\bfseries\changefont{size=13pt}}
 \titlespacing*{\subsubsection}{0pt}{12pt}{6pt}
+<% if chapter_defined? %>
 \newskip\@oldcftbeforechapskip
 \@oldcftbeforechapskip=\cftbeforechapskip
+\let\@oldl@chapter\l@chapter
+<% end %>
 \newskip\@oldcftbeforesecskip
 \@oldcftbeforesecskip=\cftbeforesecskip
-\let\@oldl@chapter\l@chapter
 \let\@oldl@section\l@section
 \let\@oldl@subsection\l@subsection
+<% if chapter_defined? %>
 \def\l@chapter#1#2{\@oldl@chapter{#1}{#2}\cftbeforechapskip=3pt}
 \def\l@section#1#2{\@oldl@section{#1}{#2}\cftbeforechapskip=\@oldcftbeforechapskip\cftbeforesecskip=3pt}
+<% else %>
+\def\l@section#1#2{\@oldl@section{#1}{#2}\cftbeforesecskip=3pt}
+<% end %>
 \def\l@subsection#1#2{\@oldl@subsection{#1}{#2}\cftbeforesecskip=\@oldcftbeforesecskip}
 \renewcommand*\cftfigpresnum{\figurename~}
 \newlength{\@cftfignumwidth@tmp}
@@ -60,7 +66,7 @@
 \newlength{\@cfttabnumwidth@tmp}
 \settowidth{\@cfttabnumwidth@tmp}{\cfttabpresnum}
 \addtolength{\cfttabnumwidth}{\@cfttabnumwidth@tmp}
-\renewcommand{\cfttabaftersnumb}{\quad~}}
+\renewcommand{\cfttabaftersnumb}{\quad~}
 
 % Head&Foot style
 \let\ps@plain\ps@fancy
