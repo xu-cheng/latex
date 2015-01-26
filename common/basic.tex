@@ -37,10 +37,10 @@
   colorlinks=true,
   allcolors=@hyperreflinkred,
   pdfinfo={
-    Template.name={<%= name %>}
+    Template.name={<%= name %>},
     Template.author={Xu Cheng <xucheng@me.com>},
-    Template.category={<%= category.to_s %>}
-    Template.date={<%= date %>}
+    Template.category={<%= category.to_s %>},
+    Template.date={<%= date %>},
     Template.url={https://github.com/xu-cheng/latex},
   },
   <% if category == :beamer %>pdfpagemode={FullScreen}<% else %>pdfstartview={XYZ null null 1}<% end %>
