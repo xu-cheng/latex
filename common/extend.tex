@@ -31,10 +31,28 @@
 \def\author#1{\gdef\@author{#1}\hypersetup{pdfauthor={#1}}}
 \author{}
 
+<% if chapter_defined? %>
+% Figure and table numbering style
+\renewcommand{\thetable}{\arabic{chapter}.\arabic{table}}
+\renewcommand{\thefigure}{\arabic{chapter}-\arabic{figure}}
+<% end %>
+
 % Section&TOC style
 \setcounter{secnumdepth}{3}
 \setcounter{tocdepth}{1}
 \contentsmargin{2.0em}
+<% if chapter_defined? %>
+\titleformat{\chapter}
+  {
+    \bfseries
+    \centering
+    \changefont{size=18pt}
+  }
+  {Chapter~\thechapter}
+  {1em}
+  {}
+\titlespacing*{\chapter}{0pt}{0pt}{20pt}
+<% end %>
 \titleformat*{\section}{\bfseries\changefont{size=16pt}}
 \titlespacing*{\section}{0pt}{18pt}{6pt}
 \titleformat*{\subsection}{\bfseries\changefont{size=14pt}}
