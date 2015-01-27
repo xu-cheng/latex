@@ -43,7 +43,14 @@
     Template.date={<%= date %>},
     Template.url={https://github.com/xu-cheng/latex},
   },
-  <% if category == :beamer %>pdfpagemode={FullScreen}<% else %>pdfstartview={XYZ null null 1}<% end %>
+<% if category == :beamer -%>
+  pdfstartview={FullScreen}
+<% else -%>
+  linktoc=page,
+  plainpages=false,
+  pdfpagelabels=true,
+  pdfstartview={XYZ null null 1}
+<% end -%>
 }
 
 % Math related packages
