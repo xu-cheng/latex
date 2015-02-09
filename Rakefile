@@ -12,8 +12,7 @@ class String
 end
 
 class LaTeXTemplate
-  attr_accessor :name, :category
-  attr_reader :template, :date
+  attr_reader :category, :commit, :date, :name, :template
 
   def initialize(name, category, input_path, date=Time.now)
     @name = name
@@ -28,6 +27,10 @@ class LaTeXTemplate
 
   def input(filename)
     LaTeXTemplate.new(@name, @category, filename, @date).render
+  end
+
+  def commit
+    `git rev-parse --verify HEAD`.strip
   end
 
   def license; <<-EOS.undent
