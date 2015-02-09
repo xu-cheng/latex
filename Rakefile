@@ -12,7 +12,7 @@ class String
 end
 
 class LaTeXTemplate
-  attr_reader :category, :commit, :date, :name, :template
+  attr_reader :category, :date, :name, :template
 
   def initialize(name, category, input_path, date=Time.now)
     @name = name
