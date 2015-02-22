@@ -39,6 +39,7 @@ class LaTeXTemplate
     %   - name: #{@name}
     %   - category: #{@category}
     %   - date: #{@date}
+    %   - commit: #{commit}
     %
     % Copyright (C) 2014-#{@date.year} by Xu Cheng <xucheng@me.com>
     %
