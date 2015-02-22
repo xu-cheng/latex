@@ -64,8 +64,8 @@ class LaTeXTemplate
 
   def top_level
     case @category
-    when :book, :report; "chapter"
-    when :article, :beamer; "section"
+    when :book, :report then "chapter"
+    when :article, :beamer then "section"
     else raise
     end
   end
