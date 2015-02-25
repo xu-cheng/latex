@@ -45,7 +45,7 @@
     Template.url={https://github.com/xu-cheng/latex},
   },
 <% if category == :beamer -%>
-  pdfstartview={FullScreen}
+  pdfpagemode={FullScreen}
 <% else -%>
   linktoc=page,
   plainpages=false,
@@ -117,6 +117,9 @@
 \DeclareCaptionFont{@captionfont}{\changefont{size=11pt}}
 \DeclareCaptionLabelFormat{@caplabel}{#1~#2}
 \captionsetup{
+<% if category == :beamer -%>
+  compatibility=false,
+<% end -%>
   font=@captionfont,
   labelformat=@caplabel,
   format=hang,

@@ -42,7 +42,7 @@
   \IfNoValueTF{#2}{
     \@olddate{#1} % only one argument
   }{
-    \{#3}{ % two arguments
+    \IfNoValueTF{#3}{ % two arguments
       \setdate{#1}{#2}{1}
       \@olddate{\datemonthname~\thedateyear}
     }{  % three arguments
