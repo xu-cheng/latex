@@ -55,7 +55,30 @@
 \date{\thedateyear}{\thedatemonth}{\thedateday}
 
 % Beamer style
+\newdimen\beamer@headheight
+\beamer@headheight=0.13\paperwidth
 \usetheme{default}
+\usecolortheme{sidebartab}
+\setbeamerfont{date}{size=\scriptsize,parent=sidebartab}
+\setbeamerfont{section in head/foot}{size=\tiny,series=\normalfont}
+\setbeamerfont{frametitle}{size=\Large,series=\bfseries}
+\setbeamertemplate{itemize items}[circle]
+\setbeamertemplate{enumerate items}[default]
+\setbeamertemplate{blocks}[rounded][shadow=true]
+\setbeamertemplate{section in toc}[sections numbered]
+\setbeamertemplate{subsection in toc}[subsections numbered]
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}
+{
+  \linethickness{0pt}
+  \framelatex{
+  \begin{beamercolorbox}[leftskip=.3cm,wd=\paperwidth,ht=0.3\beamer@headheight,sep=0.1cm]{Location bar}
+    \usebeamerfont{section in head/foot}%
+    \insertshortauthor~|~\insertshorttitle
+    \hfill
+    \insertframenumber/\inserttotalframenumber
+  \end{beamercolorbox}}
+}
 
 % Beamer TOC
 \def\PrintTOC{
@@ -65,10 +88,13 @@
   \tableofcontents[subsectionstyle=hide]
   \end{frame}
 }
+
 \newif\if@TOCAtBeginSection
 \@TOCAtBeginSectiontrue
+
 \def\EnableTOCAtBeginSection{\@TOCAtBeginSectiontrue}
 \def\DisableTOCAtBeginSection{\@TOCAtBeginSectionfalse}
+
 \AtBeginSection[] {
 \if@TOCAtBeginSection
   \begin{frame}{\secname}
@@ -76,6 +102,7 @@
   \end{frame}
 \else\fi
 }
+
 \AtBeginSubsection[] {
 \if@TOCAtBeginSection
   \begin{frame}{\secname}{\subsecname}
