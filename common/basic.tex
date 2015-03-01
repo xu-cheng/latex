@@ -45,12 +45,17 @@
     Template.url={https://github.com/xu-cheng/latex},
   },
 <% if category == :beamer -%>
-  pdfpagemode={FullScreen}
+  pdfcenterwindow=true,
+  pdfstartview={Fit},
+  pdfpagemode={FullScreen},
+  pdfpagelayout={SinglePage}
 <% else -%>
   linktoc=page,
   plainpages=false,
   pdfpagelabels=true,
-  pdfstartview={XYZ null null 1}
+  pdfstartview={XYZ null null 1},
+  pdfpagemode={UseOutlines},
+  pdfpagelayout={OneColumn}
 <% end -%>
 }
 
