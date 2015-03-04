@@ -3,12 +3,12 @@
 \NeedsTeXFormat{LaTeX2e}[1999/12/01]
 \ProvidesClass{<%= name %>}
 \PassOptionsToClass{\CurrentOption}{<%= name %>}
-\LoadClass[12pt,utf8,compress,mathserif,noamsthm,xcolor=table]{beamer}
+\LoadClass[12pt,utf8,compress,noamsthm,xcolor=table]{beamer}
 
 <%= input "./common/basic.tex" %>
 
 % beamer only packages
-\RequirePackage{pgf,pgfarrows,pgfnodes,pgfautomata,pgfheaps,pgfshade}
+\RequirePackage{pgf}
 
 % Variables Setting
 \let\@oldtitle\title
@@ -59,6 +59,7 @@
 \beamer@headheight=0.13\paperwidth
 \usetheme{default}
 \usecolortheme{sidebartab}
+\usefonttheme[onlymath]{serif}
 \setbeamerfont{date}{size=\scriptsize,parent=sidebartab}
 \setbeamerfont{section in head/foot}{size=\tiny,series=\normalfont}
 \setbeamerfont{frametitle}{size=\Large,series=\bfseries}
