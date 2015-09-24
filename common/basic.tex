@@ -61,7 +61,10 @@
 }
 
 % Math related packages
-\RequirePackage{amsmath,amssymb,amsfonts,mathrsfs,latexsym,bm}
+\RequirePackage{amsmath,amssymb,amsfonts,mathrsfs,latexsym}
+<% if category != :beamer %>
+\RequirePackage{bm}
+<% end %>
 \RequirePackage[amsmath,amsthm,hyperref,thref]{ntheorem}
 \RequirePackage{fancynum}
 \setfnumgsym{\,}
