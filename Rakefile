@@ -97,7 +97,7 @@ task :beamer do
   LaTeXTemplate.new("mybeamer", :beamer, "./beamer/beamer.tex").save
 end
 
-desc "Clean the buildfile"
+desc "Clean up"
 task :clean do
   Dir[OUTPUT_DIR/"*"].each { |f| rm f }
 end
