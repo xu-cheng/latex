@@ -13,7 +13,7 @@
 \RequirePackage{tabularx}
 \RequirePackage{ltxtable}
 \RequirePackage[inline]{enumitem}
-\RequirePackage{titlesec}
+\RequirePackage[compact]{titlesec}
 \RequirePackage{titletoc}
 \RequirePackage{tocvsec2}
 \RequirePackage{fancyhdr}
@@ -44,21 +44,17 @@
 <% if chapter_defined? %>
 \titleformat{\chapter}
   {
-    \bfseries
     \centering
-    \changefont{size=18pt}
+    \LARGE
+    \bfseries
   }
   {Chapter~\thechapter}
   {1em}
   {}
-\titlespacing*{\chapter}{0pt}{0pt}{20pt}
 <% end %>
-\titleformat*{\section}{\bfseries\changefont{size=16pt}}
-\titlespacing*{\section}{0pt}{18pt}{6pt}
-\titleformat*{\subsection}{\bfseries\changefont{size=14pt}}
-\titlespacing*{\subsection}{0pt}{12pt}{6pt}
-\titleformat*{\subsubsection}{\bfseries\changefont{size=13pt}}
-\titlespacing*{\subsubsection}{0pt}{12pt}{6pt}
+\titleformat*{\section}{\Large\bfseries}
+\titleformat*{\subsection}{\large\bfseries}
+\titleformat*{\subsubsection}{\large\bfseries}
 <% if chapter_defined? %>
 \newskip\@oldcftbeforechapskip
 \@oldcftbeforechapskip=\cftbeforechapskip

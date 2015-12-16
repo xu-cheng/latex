@@ -9,10 +9,6 @@
 \setmonofont{CMU Typewriter Text}
 \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
 
-% Linespread setting
-\RequirePackage{interfaces-LaTeX}
-\changefont{linespread=1.2}
-
 % Paper size setting
 \pdfpagewidth=\paperwidth
 \pdfpageheight=\paperheight
@@ -123,17 +119,15 @@
 \renewcommand{\floatpagefraction}{0.60}
 
 % Caption style
-\DeclareCaptionFont{@captionfont}{\changefont{size=11pt}}
 \DeclareCaptionLabelFormat{@caplabel}{#1~#2}
 \captionsetup{
 <% if category == :beamer -%>
   compatibility=false,
 <% end -%>
-  font=@captionfont,
   labelformat=@caplabel,
   format=hang,
   labelsep=quad,
-  skip=12pt
+  skip=\baselineskip
 }
 
 % Utility function
