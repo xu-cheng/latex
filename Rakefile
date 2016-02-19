@@ -80,11 +80,16 @@ end
 task :default => :all
 
 desc "Build all the templates"
-task :all => [:article, :book, :beamer]
+task :all => [:article, :report, :book, :beamer]
 
 desc "Build article template"
 task :article do
   LaTeXTemplate.new("myarticle", :article, "./article/article.tex").save
+end
+
+desc "Build report template"
+task :report do
+  LaTeXTemplate.new("myreport", :report, "./report/report.tex").save
 end
 
 desc "Build book template"
