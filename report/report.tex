@@ -2,7 +2,8 @@
 
 \NeedsTeXFormat{LaTeX2e}[1999/12/01]
 \ProvidesClass{<%= name %>}
-\PassOptionsToClass{\CurrentOption}{<%= name %>}
+\DeclareOption*{\PassOptionsToClass{\CurrentOption}{report}}
+\ProcessOptions
 \LoadClass[a4paper]{report}
 
 <%= input "./common/basic.tex" %>

@@ -2,7 +2,8 @@
 
 \NeedsTeXFormat{LaTeX2e}[1999/12/01]
 \ProvidesClass{<%= name %>}
-\PassOptionsToClass{\CurrentOption}{<%= name %>}
+\DeclareOption*{\PassOptionsToClass{\CurrentOption}{beamer}}
+\ProcessOptions
 \LoadClass[utf8,compress,noamsthm,xcolor=table]{beamer}
 
 <%= input "./common/basic.tex" %>
