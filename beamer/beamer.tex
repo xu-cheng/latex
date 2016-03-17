@@ -4,7 +4,7 @@
 \ProvidesClass{<%= name %>}
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{beamer}}
 \ProcessOptions
-\LoadClass[utf8,compress,noamsthm,xcolor=table]{beamer}
+\LoadClass[utf8,compress,noamsthm,xcolor={table,dvipsnames}]{beamer}
 
 <%= input "./common/basic.tex" %>
 
@@ -58,7 +58,7 @@
 % Beamer style
 \newdimen\beamer@headheight
 \beamer@headheight=0.13\paperwidth
-\usetheme{default}
+\usetheme{Boadilla}
 \usecolortheme{sidebartab}
 \usefonttheme[onlymath]{serif}
 \setbeamerfont{date}{size=\scriptsize,parent=sidebartab}
@@ -69,6 +69,11 @@
 \setbeamertemplate{blocks}[rounded][shadow=true]
 \setbeamertemplate{section in toc}[sections numbered]
 \setbeamertemplate{subsection in toc}[subsections numbered]
+\defbeamertemplate{subsubsection in toc}{subsubsections numbered}
+{\leavevmode\leftskip=3em%
+ \rlap{\hskip-3em\inserttocsectionnumber.\inserttocsubsectionnumber.\inserttocsubsubsectionnumber}%
+ \inserttocsubsubsection\par}
+\setbeamertemplate{subsubsection in toc}[subsubsections numbered]
 \setbeamertemplate{navigation symbols}{}
 \setbeamertemplate{footline}
 {
