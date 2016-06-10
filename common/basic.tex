@@ -41,19 +41,19 @@
     Template.commit={<%= commit %>},
     Template.url={https://github.com/xu-cheng/latex},
   },
-<% if category == :beamer -%>
+<% if category == :beamer %>
   pdfcenterwindow=true,
   pdfstartview={Fit},
   pdfpagemode={FullScreen},
   pdfpagelayout={SinglePage}
-<% else -%>
+<% else %>
   linktoc=page,
   plainpages=false,
   pdfpagelabels=true,
   pdfstartview={XYZ null null 1},
   pdfpagemode={UseOutlines},
   pdfpagelayout={OneColumn}
-<% end -%>
+<% end %>
 }
 
 % Math related packages
@@ -121,9 +121,9 @@
 % Caption style
 \DeclareCaptionLabelFormat{@caplabel}{#1~#2}
 \captionsetup{
-<% if category == :beamer -%>
+<% if category == :beamer %>
   compatibility=false,
-<% end -%>
+<% end %>
   labelformat=@caplabel,
   format=hang,
   labelsep=quad,

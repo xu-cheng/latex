@@ -22,7 +22,7 @@ class LaTeXTemplate
   end
 
   def render
-    ERB.new(@template, nil, "-").result(binding)
+    ERB.new(@template, nil, ">").result(binding)
   end
 
   def input(filename)
