@@ -4,6 +4,7 @@
 \ProvidesClass{<%= name %>}
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{tikzposter}}
 \ProcessOptions
+\RequirePackage[table,dvipsnames]{xcolor} % xcolor need to be loaded before tikz
 \LoadClass{tikzposter}
 
 <%= input "./common/basic.tex" %>

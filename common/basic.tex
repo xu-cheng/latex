@@ -9,16 +9,18 @@
 \setmonofont{CMU Typewriter Text}
 \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
 
+<% if category != :poster %>
 % Paper size setting
 \pdfpagewidth=\paperwidth
 \pdfpageheight=\paperheight
+<% end %>
 
 % Indent of paragraph and skip between paragraphs
 \RequirePackage{indentfirst}
 \setlength{\parindent}{2em}
 \setlength{\parskip}{0pt plus 2pt minus 1pt}
 
-<% if category != :beamer %>
+<% if not [:beamer, :poster].include?(category) %>
 % Color packages
 \RequirePackage{color}
 \RequirePackage[table,dvipsnames]{xcolor}
