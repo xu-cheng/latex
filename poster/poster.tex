@@ -1,0 +1,39 @@
+<%= license %>
+
+\NeedsTeXFormat{LaTeX2e}[1999/12/01]
+\ProvidesClass{<%= name %>}
+\DeclareOption*{\PassOptionsToClass{\CurrentOption}{tikzposter}}
+\ProcessOptions
+\LoadClass{tikzposter}
+
+<%= input "./common/basic.tex" %>
+
+% Variables Setting
+\let\@oldtitle\title
+\DeclareDocumentCommand\title{o m}
+{
+  \IfNoValueTF{#1}{
+    \@oldtitle{#2}
+  }{
+    \@oldtitle[#1]{#2}
+  }
+  \hypersetup{pdftitle={#2}}
+}
+\title{}
+
+\let\@oldauthor\author
+\DeclareDocumentCommand\author{o +m}
+{
+  \IfNoValueTF{#1}{
+    \@oldauthor{#2}
+     \hypersetup{pdfauthor={#2}}
+  }{
+    \@oldauthor[#1]{#2}
+    \hypersetup{pdfauthor={#1}}
+  }
+}
+\author{}
+
+% Poster style
+\usetheme{Default}
+

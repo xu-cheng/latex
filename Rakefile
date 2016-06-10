@@ -65,7 +65,7 @@ class LaTeXTemplate
   def top_level
     case @category
     when :book, :report then "chapter"
-    when :article, :beamer then "section"
+    when :article, :beamer, :poster then "section"
     else raise
     end
   end
@@ -100,6 +100,11 @@ end
 desc "Build beamer template"
 task :beamer do
   LaTeXTemplate.new("mybeamer", :beamer, "./beamer/beamer.tex").save
+end
+
+desc "Build poster template"
+task :poster do
+  LaTeXTemplate.new("myposter", :poster, "./poster/poster.tex").save
 end
 
 desc "Clean up"
