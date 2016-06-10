@@ -80,7 +80,7 @@ end
 task :default => :all
 
 desc "Build all the templates"
-task :all => [:article, :report, :book, :beamer]
+task :all => [:article, :report, :book, :beamer, :poster]
 
 desc "Build article template"
 task :article do
