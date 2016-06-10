@@ -40,3 +40,7 @@
 
 % do not show affection
 \tikzposterlatexaffectionproofoff
+
+% work around incompatibility with hyperref
+% ref: http://tex.stackexchange.com/questions/254257/tikzposter-and-doi-package-conflict
+\def\HyperFirstAtBeginDocument#1{#1}
