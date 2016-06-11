@@ -13,7 +13,7 @@
 
 % Variables Setting
 \let\@oldtitle\title
-\DeclareDocumentCommand\title{o m}
+\DeclareDocumentCommand\title{o +m}
 {
   \IfNoValueTF{#1}{
     \@oldtitle{#2}
