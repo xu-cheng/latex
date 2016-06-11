@@ -10,29 +10,10 @@
 <%= input "./common/basic.tex" %>
 
 % Variables Setting
-\let\@oldtitle\title
-\DeclareDocumentCommand\title{o m}
-{
-  \IfNoValueTF{#1}{
-    \@oldtitle{#2}
-  }{
-    \@oldtitle{#2}
-  }
-  \hypersetup{pdftitle={#2}}
-}
+\def\title#1{\gdef\@title{#1}\hypersetup{pdftitle={#1}}}
 \title{}
 
-\let\@oldauthor\author
-\DeclareDocumentCommand\author{o +m}
-{
-  \IfNoValueTF{#1}{
-    \@oldauthor{#2}
-     \hypersetup{pdfauthor={#2}}
-  }{
-    \@oldauthor{#2}
-    \hypersetup{pdfauthor={#1}}
-  }
-}
+\def\author#1{\gdef\@author{#1}\hypersetup{pdfauthor={#1}}}
 \author{}
 
 % Poster style
