@@ -2,6 +2,7 @@ require "erb"
 require "fileutils"
 require "pathname"
 require "rake"
+require "time"
 
 OUTPUT_DIR = Pathname.new("dist")
 
@@ -14,7 +15,7 @@ end
 class LaTeXTemplate
   attr_reader :category, :date, :name, :template
 
-  def initialize(name, category, input_path, date=Time.now)
+  def initialize(name, category, input_path, date=commit_date)
     @name = name
     @category = category
     @template = File.read(input_path)
@@ -27,6 +28,10 @@ class LaTeXTemplate
 
   def input(filename)
     LaTeXTemplate.new(@name, @category, filename, @date).render
+  end
+
+  def commit_date
+    Time.parse `git show -s --format=%cD`.strip
   end
 
   def commit
