@@ -48,6 +48,12 @@
   pdfstartview={Fit},
   pdfpagemode={FullScreen},
   pdfpagelayout={SinglePage}
+<% elsif category == :poster %>
+  plainpages=false,
+  pdfpagelabels=true,
+  pdfcenterwindow=true,
+  pdfstartview={Fit},
+  pdfpagelayout={SinglePage}
 <% else %>
   linktoc=page,
   plainpages=false,
