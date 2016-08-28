@@ -9,7 +9,10 @@
 <%= input "./common/basic.tex" %>
 
 % beamer only packages
-\RequirePackage{pgf}
+\RequirePackage{pgf,tikz}
+
+% Theorem style
+\setbeamertemplate{theorems}[numbered]
 
 % Variables Setting
 \let\@oldtitle\title
