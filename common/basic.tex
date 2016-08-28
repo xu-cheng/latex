@@ -68,7 +68,6 @@
 <% if category != :beamer %>
 \RequirePackage{bm}
 <% end %>
-\RequirePackage[amsmath,amsthm,hyperref,thref]{ntheorem}
 \RequirePackage{fancynum}
 \setfnumgsym{\,}
 \RequirePackage[lined,boxed,linesnumbered,ruled,vlined,algosection]{algorithm2e}
@@ -97,24 +96,6 @@
 \abovedisplayshortskip=10bp plus 2bp minus 2bp
 \belowdisplayskip=\abovedisplayskip
 \belowdisplayshortskip=\abovedisplayshortskip
-
-% Theorem style
-\theoremnumbering{arabic}
-\theoremseparator{:}
-\theorempreskip{1.2ex plus 0ex minus 1ex}
-\theorempostskip{1.2ex plus 0ex minus 1ex}
-\theoremheaderfont{\normalfont\bfseries}
-\theoremsymbol{}
-\def\proofname{\textbf{Proof}}
-\theoremstyle{definition}
-\newtheorem{definition}{Definition}[<%= top_level %>]
-\newtheorem{proposition}{Proposition}[<%= top_level %>]
-\newtheorem{lemma}{Lemma}[<%= top_level %>]
-\newtheorem{theorem}{Theorem}[<%= top_level %>]
-\newtheorem{axiom}{Axiom}[<%= top_level %>]
-\newtheorem{corollary}{Corollary}[<%= top_level %>]
-\newtheorem{exercise}{Exercise}[<%= top_level %>]
-\newtheorem{example}{Example}[<%= top_level %>]
 
 % Floating objects style
 \setlength{\intextsep}{0.7\baselineskip plus 0.1\baselineskip minus 0.1\baselineskip}

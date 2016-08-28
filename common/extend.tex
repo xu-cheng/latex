@@ -100,3 +100,22 @@
 
 % Footer style
 \MakePerPage{footnote}
+
+% Theorem style
+\RequirePackage[amsmath,amsthm,hyperref,thref]{ntheorem}
+\theoremnumbering{arabic}
+\theoremseparator{:}
+\theorempreskip{1.2ex plus 0ex minus 1ex}
+\theorempostskip{1.2ex plus 0ex minus 1ex}
+\theoremheaderfont{\normalfont\bfseries}
+\theoremsymbol{}
+\def\proofname{\textbf{Proof}}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[<%= top_level %>]
+\newtheorem{proposition}{Proposition}[<%= top_level %>]
+\newtheorem{lemma}{Lemma}[<%= top_level %>]
+\newtheorem{theorem}{Theorem}[<%= top_level %>]
+\newtheorem{axiom}{Axiom}[<%= top_level %>]
+\newtheorem{corollary}{Corollary}[<%= top_level %>]
+\newtheorem{exercise}{Exercise}[<%= top_level %>]
+\newtheorem{example}{Example}[<%= top_level %>]
