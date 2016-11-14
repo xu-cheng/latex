@@ -90,6 +90,27 @@
   \end{beamercolorbox}}
 }
 
+% Beamer title
+\def\maketitle{
+  \let\@oldthepage\thepage
+  \def\thepage{Titlepage}
+  \begingroup
+  \setbeamertemplate{footline}
+  {
+    \linethickness{0pt}
+    \framelatex{
+    \begin{beamercolorbox}[leftskip=.3cm,wd=\paperwidth,ht=0.3\beamer@headheight,sep=0.1cm]{Location bar}
+      \usebeamerfont{section in head/foot}%
+      \insertshortauthor~|~\insertshorttitle
+      \hfill
+    \end{beamercolorbox}}
+  }
+  \frame{\titlepage}
+  \endgroup
+  \let\thepage\@oldthepage
+  \setcounter{framenumber}{0}
+}
+
 % Beamer TOC
 \def\PrintTOC{
   \section*{}
