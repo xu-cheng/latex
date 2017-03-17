@@ -7,4 +7,4 @@ Assuming Ruby is installed, just run the command `rake` to build templates. You 
 
 ## License
 
-This work is under the [license of MIT](https://github.com/xu-cheng/latex/blob/master/LICENSE). The building result is under the [license of LPPL](http://latex-project.org/lppl/).
+This work is under the [license of LPPL](https://github.com/xu-cheng/latex/blob/master/LICENSE).
