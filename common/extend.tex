@@ -56,11 +56,11 @@
 \titleformat*{\subsubsection}{\large\bfseries}
 <% if chapter_defined? %>
 \newskip\@oldcftbeforechapskip
-\@oldcftbeforechapskip=\cftbeforechapskip
+\@oldcftbeforechapskip=\cftbeforechapskip%
 \let\@oldl@chapter\l@chapter
 <% end %>
 \newskip\@oldcftbeforesecskip
-\@oldcftbeforesecskip=\cftbeforesecskip
+\@oldcftbeforesecskip=\cftbeforesecskip%
 \let\@oldl@section\l@section
 \let\@oldl@subsection\l@subsection
 <% if chapter_defined? %>
@@ -94,7 +94,7 @@
 \setlist[1]{labelindent=\parindent}
 \setlist[enumerate,1]{label=\arabic*.,ref=\arabic*}
 \setlist[enumerate,2]{label*=\arabic*,ref=\theenumi.\arabic*}
-\setlist[enumerate,3]{label=\emph{\alph*}),ref=\theenumii\emph{\alph*}}
+\setlist[enumerate,3]{label=\emph{\alph*}),ref=\theenumii\emph{\alph*}} % chktex 9
 \setlist[description]{font=\bfseries}
 
 % Footer style

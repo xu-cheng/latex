@@ -3,7 +3,7 @@
 \NeedsTeXFormat{LaTeX2e}[1999/12/01]
 \ProvidesClass{<%= name %>}
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{beamer}}
-\ProcessOptions
+\ProcessOptions%
 \LoadClass[utf8,compress,xcolor={table,dvipsnames}]{beamer}
 
 <%= input "./common/basic.tex" %>
@@ -15,7 +15,7 @@
 \setbeamertemplate{theorems}[numbered]
 
 % Variables Setting
-\let\@oldtitle\title
+\let\@oldtitle\title%
 \DeclareDocumentCommand\title{o +m}
 {
   \IfNoValueTF{#1}{
@@ -27,7 +27,7 @@
 }
 \title{}
 
-\let\@oldauthor\author
+\let\@oldauthor\author%
 \DeclareDocumentCommand\author{o +m}
 {
   \IfNoValueTF{#1}{
@@ -40,7 +40,7 @@
 }
 \author{}
 
-\let\@olddate\date
+\let\@olddate\date%
 \DeclareDocumentCommand\date{m g g}
 {
   \IfNoValueTF{#2}{
@@ -55,12 +55,12 @@
     }
   }
 }
-\setdatetoday
+\setdatetoday%
 \date{\thedateyear}{\thedatemonth}{\thedateday}
 
 % Beamer style
 \newdimen\beamer@headheight
-\beamer@headheight=0.13\paperwidth
+\beamer@headheight=0.13\paperwidth%
 \usetheme{Boadilla}
 \usecolortheme{sidebartab}
 \usefonttheme[onlymath]{serif}
@@ -84,15 +84,15 @@
   \framelatex{
   \begin{beamercolorbox}[leftskip=.3cm,wd=\paperwidth,ht=0.3\beamer@headheight,sep=0.1cm]{Location bar}
     \usebeamerfont{section in head/foot}%
-    \insertshortauthor~|~\insertshorttitle
+    \insertshortauthor~|~\insertshorttitle%
     \hfill
-    \insertframenumber/\inserttotalframenumber
+    \insertframenumber/\inserttotalframenumber%
   \end{beamercolorbox}}
 }
 
 % Beamer title
 \def\maketitle{
-  \let\@oldthepage\thepage
+  \let\@oldthepage\thepage%
   \def\thepage{Titlepage}
   \begingroup
   \setbeamertemplate{footline}
@@ -101,7 +101,7 @@
     \framelatex{
     \begin{beamercolorbox}[leftskip=.3cm,wd=\paperwidth,ht=0.3\beamer@headheight,sep=0.1cm]{Location bar}
       \usebeamerfont{section in head/foot}%
-      \insertshortauthor~|~\insertshorttitle
+      \insertshortauthor~|~\insertshorttitle%
       \hfill
     \end{beamercolorbox}}
   }
