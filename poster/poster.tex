@@ -2,9 +2,11 @@
 
 \NeedsTeXFormat{LaTeX2e}[1999/12/01]
 \ProvidesClass{<%= name %>}
+
+\RequirePackage[table,dvipsnames]{xcolor} % xcolor need to be loaded before tikz
+
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{tikzposter}}
 \ProcessOptions%
-\RequirePackage[table,dvipsnames]{xcolor} % xcolor need to be loaded before tikz
 \LoadClass{tikzposter}
 
 <%= input "./common/basic.tex" %>

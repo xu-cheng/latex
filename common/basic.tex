@@ -1,4 +1,4 @@
-\RequirePackage[l2tabu, orthodox]{nag}
+\RequirePackage[l2tabu,orthodox]{nag}
 \RequirePackage{iftex}
 \RequirePackage{ifthen}
 
@@ -18,11 +18,9 @@
 \setlength{\parindent}{2em}
 \setlength{\parskip}{0pt plus 2pt minus 1pt}
 
-<% if not [:beamer, :poster].include?(category) %>
 % Color packages
 \RequirePackage{color}
 \RequirePackage[table,dvipsnames]{xcolor}
-<% end %>
 
 % hyperref setting
 \RequirePackage[unicode]{hyperref}
@@ -81,6 +79,7 @@
 
 % Figure related packages
 \RequirePackage{graphicx}
+\RequirePackage{tikz}
 \RequirePackage{overpic}
 
 % Table related packages
