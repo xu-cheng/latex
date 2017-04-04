@@ -63,7 +63,11 @@
 \RequirePackage{bookmark}
 
 % Math related packages
-\RequirePackage{amsmath,amssymb,amsfonts,mathrsfs,latexsym}
+\RequirePackage{amsmath}
+\RequirePackage{amssymb}
+\RequirePackage{amsfonts}
+\RequirePackage{mathrsfs}
+\RequirePackage{latexsym}
 <% if category != :beamer %>
 \RequirePackage{bm}
 <% end %>
@@ -71,9 +75,13 @@
 \setfnumgsym{\,}
 \RequirePackage[linesnumbered,ruled,vlined]{algorithm2e}
 
-% Picture related packages
+% Caption related packages
+\RequirePackage{caption}
+\RequirePackage{subcaption}
+
+% Figure related packages
+\RequirePackage{graphicx}
 \RequirePackage{overpic}
-\RequirePackage{graphicx,caption,subcaption}
 
 % Table related packages
 \RequirePackage{array}
