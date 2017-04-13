@@ -138,3 +138,9 @@
   \end{frame}
 \else\fi
 }
+
+% Justify text inside list environment
+% Ref: http://liam0205.me/2017/04/11/justifying-in-beamer-s-lists/
+\xpatchcmd{\itemize}{\raggedright}{\justifying}{}{}
+\xpatchcmd{\beamer@enum@}{\raggedright}{\justifying}{}{}
+\xpatchcmd{\@@description}{\raggedright}{\justifying}{}{}
