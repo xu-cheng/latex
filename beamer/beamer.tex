@@ -15,42 +15,42 @@
 \let\@oldtitle\title%
 \DeclareDocumentCommand\title{o +m}
 {
-  \IfNoValueTF{#1}{
-    \@oldtitle{#2}
-  }{
-    \@oldtitle[#1]{#2}
-  }
-  \hypersetup{pdftitle={#2}}
+    \IfNoValueTF{#1}{
+        \@oldtitle{#2}
+    }{
+        \@oldtitle[#1]{#2}
+    }
+    \hypersetup{pdftitle={#2}}
 }
 \title{}
 
 \let\@oldauthor\author%
 \DeclareDocumentCommand\author{o +m}
 {
-  \IfNoValueTF{#1}{
-    \@oldauthor{#2}
-     \hypersetup{pdfauthor={#2}}
-  }{
-    \@oldauthor[#1]{#2}
-    \hypersetup{pdfauthor={#1}}
-  }
+    \IfNoValueTF{#1}{
+        \@oldauthor{#2}
+        \hypersetup{pdfauthor={#2}}
+    }{
+        \@oldauthor[#1]{#2}
+        \hypersetup{pdfauthor={#1}}
+    }
 }
 \author{}
 
 \let\@olddate\date%
 \DeclareDocumentCommand\date{m g g}
 {
-  \IfNoValueTF{#2}{
-    \@olddate{#1} % only one argument
-  }{
-    \IfNoValueTF{#3}{ % two arguments
-      \setdate{#1}{#2}{1}
-      \@olddate{\datemonthname~\thedateyear}
-    }{  % three arguments
-      \setdate{#1}{#2}{#3}
-      \@olddate{\datedate}
+    \IfNoValueTF{#2}{
+        \@olddate{#1} % only one argument
+    }{
+        \IfNoValueTF{#3}{ % two arguments
+            \setdate{#1}{#2}{1}
+            \@olddate{\datemonthname~\thedateyear}
+        }{  % three arguments
+            \setdate{#1}{#2}{#3}
+            \@olddate{\datedate}
+        }
     }
-  }
 }
 \setdatetoday%
 \date{\thedateyear}{\thedatemonth}{\thedateday}
@@ -70,51 +70,53 @@
 \setbeamertemplate{section in toc}[sections numbered]
 \setbeamertemplate{subsection in toc}[subsections numbered]
 \defbeamertemplate{subsubsection in toc}{subsubsections numbered}
-{\leavevmode\leftskip=3em%
- \rlap{\hskip-3em\inserttocsectionnumber.\inserttocsubsectionnumber.\inserttocsubsubsectionnumber}%
- \inserttocsubsubsection\par}
+{
+    \leavevmode\leftskip=3em%
+    \rlap{\hskip-3em\inserttocsectionnumber.\inserttocsubsectionnumber.\inserttocsubsubsectionnumber}%
+    \inserttocsubsubsection\par
+}
 \setbeamertemplate{subsubsection in toc}[subsubsections numbered]
 \setbeamertemplate{navigation symbols}{}
 \setbeamertemplate{footline}
 {
-  \linethickness{0pt}
-  \framelatex{
-  \begin{beamercolorbox}[leftskip=.3cm,wd=\paperwidth,ht=0.3\beamer@headheight,sep=0.1cm]{Location bar}
-    \usebeamerfont{section in head/foot}%
-    \insertshortauthor~|~\insertshorttitle%
-    \hfill
-    \insertframenumber/\inserttotalframenumber%
-  \end{beamercolorbox}}
+    \linethickness{0pt}
+    \framelatex{
+        \begin{beamercolorbox}[leftskip=.3cm,wd=\paperwidth,ht=0.3\beamer@headheight,sep=0.1cm]{Location bar}
+            \usebeamerfont{section in head/foot}%
+            \insertshortauthor~|~\insertshorttitle%
+            \hfill
+            \insertframenumber/\inserttotalframenumber%
+        \end{beamercolorbox}}
 }
 
 % Beamer title
 \def\maketitle{
-  \let\@oldthepage\thepage%
-  \def\thepage{Titlepage}
-  \begingroup
-  \setbeamertemplate{footline}
-  {
-    \linethickness{0pt}
-    \framelatex{
-    \begin{beamercolorbox}[leftskip=.3cm,wd=\paperwidth,ht=0.3\beamer@headheight,sep=0.1cm]{Location bar}
-      \usebeamerfont{section in head/foot}%
-      \insertshortauthor~|~\insertshorttitle%
-      \hfill
-    \end{beamercolorbox}}
-  }
-  \frame{\titlepage}
-  \endgroup
-  \let\thepage\@oldthepage
-  \setcounter{framenumber}{0}
+    \let\@oldthepage\thepage%
+    \def\thepage{Titlepage}
+    \begingroup
+    \setbeamertemplate{footline}
+    {
+        \linethickness{0pt}
+        \framelatex{
+            \begin{beamercolorbox}[leftskip=.3cm,wd=\paperwidth,ht=0.3\beamer@headheight,sep=0.1cm]{Location bar}
+                \usebeamerfont{section in head/foot}%
+                \insertshortauthor~|~\insertshorttitle%
+                \hfill
+            \end{beamercolorbox}}
+    }
+    \frame{\titlepage}
+    \endgroup
+    \let\thepage\@oldthepage
+    \setcounter{framenumber}{0}
 }
 
 % Beamer TOC
 \def\PrintTOC{
-  \section*{}
-  \begin{frame}{\contentsname}
-  \pdfbookmark{\contentsname}{\contentsname}
-  \tableofcontents[subsectionstyle=hide]
-  \end{frame}
+    \section*{}
+    \begin{frame}{\contentsname}
+        \pdfbookmark{\contentsname}{\contentsname}
+        \tableofcontents[subsectionstyle=hide]
+    \end{frame}
 }
 
 \newif\if@TOCAtBeginSection
@@ -124,19 +126,19 @@
 \def\DisableTOCAtBeginSection{\@TOCAtBeginSectionfalse}
 
 \AtBeginSection[] {
-\if@TOCAtBeginSection
-  \begin{frame}{\secname}
-  \tableofcontents[sectionstyle=show/shaded,subsectionstyle=hide,subsubsectionstyle=hide]
-  \end{frame}
-\else\fi
+    \if@TOCAtBeginSection
+        \begin{frame}{\secname}
+            \tableofcontents[sectionstyle=show/shaded,subsectionstyle=hide,subsubsectionstyle=hide]
+        \end{frame}
+    \else\fi
 }
 
 \AtBeginSubsection[] {
-\if@TOCAtBeginSection
-  \begin{frame}{\secname}{\subsecname}
-  \tableofcontents[sectionstyle=show/hide,subsectionstyle=show/shaded/hide,subsubsectionstyle=hide]
-  \end{frame}
-\else\fi
+    \if@TOCAtBeginSection
+        \begin{frame}{\secname}{\subsecname}
+            \tableofcontents[sectionstyle=show/hide,subsectionstyle=show/shaded/hide,subsubsectionstyle=hide]
+        \end{frame}
+    \else\fi
 }
 
 % Justify text inside list environment

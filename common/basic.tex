@@ -26,36 +26,36 @@
 \RequirePackage[unicode]{hyperref}
 \definecolor{@hyperreflinkred}{RGB}{128,23,31}
 \hypersetup{
-  bookmarksnumbered=true,
-  bookmarksopen=true,
-  bookmarksopenlevel=3,
-  colorlinks=true,
-  allcolors=@hyperreflinkred,
-  pdfinfo={
-    Template.name={<%= name %>},
-    Template.author={Xu Cheng <xucheng@me.com>},
-    Template.category={<%= category.to_s %>},
-    Template.date={<%= date %>}, % chktex 8
-    Template.commit={<%= commit %>},
-    Template.url={https://github.com/xu-cheng/latex},
-  },
+    bookmarksnumbered=true,
+    bookmarksopen=true,
+    bookmarksopenlevel=3,
+    colorlinks=true,
+    allcolors=@hyperreflinkred,
+    pdfinfo={
+        Template.name={<%= name %>},
+        Template.author={Xu Cheng <xucheng@me.com>},
+        Template.category={<%= category.to_s %>},
+        Template.date={<%= date %>}, % chktex 8
+        Template.commit={<%= commit %>},
+        Template.url={https://github.com/xu-cheng/latex},
+    },
 <% if category == :beamer %>
-  pdfcenterwindow=true,
-  pdfstartview={Fit},
-  pdfpagemode={FullScreen},
-  pdfpagelayout={SinglePage}
+    pdfcenterwindow=true,
+    pdfstartview={Fit},
+    pdfpagemode={FullScreen},
+    pdfpagelayout={SinglePage}
 <% elsif category == :poster %>
-  plainpages=false,
-  pdfcenterwindow=true,
-  pdfstartview={Fit},
-  pdfpagemode={UseNone},
-  pdfpagelayout={SinglePage}
+    plainpages=false,
+    pdfcenterwindow=true,
+    pdfstartview={Fit},
+    pdfpagemode={UseNone},
+    pdfpagelayout={SinglePage}
 <% else %>
-  linktoc=page,
-  plainpages=false,
-  pdfstartview={XYZ null null 1},
-  pdfpagemode={UseOutlines},
-  pdfpagelayout={OneColumn}
+    linktoc=page,
+    plainpages=false,
+    pdfstartview={XYZ null null 1},
+    pdfpagemode={UseOutlines},
+    pdfpagelayout={OneColumn}
 <% end %>
 }
 \RequirePackage{bookmark}
@@ -120,20 +120,20 @@
 \DeclareCaptionLabelFormat{@caplabel}{#1~#2}
 \captionsetup{
 <% if category == :beamer %>
-  compatibility=false,
+    compatibility=false,
 <% end %>
-  labelformat=@caplabel,
-  format=hang,
-  labelsep=quad,
-  skip=\baselineskip%
+    labelformat=@caplabel,
+    format=hang,
+    labelsep=quad,
+    skip=\baselineskip%
 }
 
 % Utility function
 \RequirePackage{soul} % offers \hl
 \def\email#1{
-  \href{mailto:#1}{\texttt{#1}}
+    \href{mailto:#1}{\texttt{#1}}
 }
 \long\def\eat#1{}
 \long\def\todo#1{
-  {\color{red} TODO:\ #1}
+    {\color{red} TODO:\ #1}
 }
