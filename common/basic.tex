@@ -10,8 +10,15 @@
 \defaultfontfeatures{Scale=MatchLowercase}
 
 % Paper size setting
-\pagewidth=\paperwidth%
-\pageheight=\paperheight%
+\ifthenelse{\isnamedefined{pagewidth}}{
+    \pagewidth=\paperwidth%
+    \pageheight=\paperheight%
+}{
+    \ifthenelse{\isnamedefined{pdfpagewidth}}{
+        \pdfpagewidth=\paperwidth%
+        \pdfpageheight=\paperheight%
+    }{}
+}
 
 % Indent of paragraph and skip between paragraphs
 \RequirePackage{indentfirst}
