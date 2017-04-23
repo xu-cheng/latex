@@ -3,11 +3,18 @@
 \RequirePackage{xifthen}
 
 % Font setting
-\RequirePackage{fontspec}
-\setmainfont[Ligatures={Common,TeX}]{Tex Gyre Termes}
-\setsansfont[Ligatures={Common,TeX}]{Helvetica Neue}
-\setmonofont{CMU Typewriter Text}
-\defaultfontfeatures{Scale=MatchLowercase}
+\ifLuaTeX%
+    \RequirePackage{fontspec}
+    \setmainfont[Ligatures={Common,TeX}]{Tex Gyre Termes}
+    \setsansfont[Ligatures={Common,TeX}]{Helvetica Neue}
+    \setmonofont{CMU Typewriter Text}
+    \defaultfontfeatures{Scale=MatchLowercase}
+\else%
+    \RequirePackage[T1]{fontenc}
+    \RequirePackage{textcomp}
+    \RequirePackage{mathptmx}
+    \RequirePackage{helvet}
+\fi%
 
 % Paper size setting
 \ifthenelse{\isnamedefined{pagewidth}}{
