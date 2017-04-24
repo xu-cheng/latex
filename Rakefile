@@ -77,9 +77,10 @@ class LaTeXTemplate
 
   def save(ext=".cls")
     FileUtils.mkdir_p OUTPUT_DIR
-    file = OUTPUT_DIR/(@name+ext)
+    file = OUTPUT_DIR/"#{name}#{ext}"
     puts "generate template to #{file}."
     File.open(file, "w") { |f| f.write(render) }
+    File.utime(date, date, file)
   end
 end
 
