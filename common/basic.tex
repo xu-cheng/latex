@@ -118,21 +118,21 @@
 % Skip between equation and context
 % Ref: https://tex.stackexchange.com/a/69678
 \def\@setdisplayskip{
-    \abovedisplayskip=10pt plus 2pt minus 5pt
-    \abovedisplayshortskip=0pt plus 3pt
-    \belowdisplayskip=10pt plus 2pt minus 5pt
-    \belowdisplayshortskip=6pt plus 3pt minus 3pt
+    \abovedisplayskip=0.75\baselineskip plus 0.15\baselineskip minus 0.45\baselineskip % chktex 1
+    \abovedisplayshortskip=0pt plus 0.25\baselineskip % chktex 1
+    \belowdisplayskip=0.75\baselineskip plus 0.15\baselineskip minus 0.45\baselineskip % chktex 1
+    \belowdisplayshortskip=0.5\baselineskip plus 0.25\baselineskip minus 0.25\baselineskip % chktex 1
 }
 \xapptocmd\normalsize{\@setdisplayskip}{}{}
 
 % Floating objects style
 % Ref: https://liam0205.me/2017/04/30/floats-in-LaTeX-the-positioning-algorithm/
 \RequirePackage{float}
-\setlength{\intextsep}{0.7\baselineskip plus 0.1\baselineskip minus 0.1\baselineskip} % chktex 1
-\setlength{\floatsep}{0.7\baselineskip plus 0.1\baselineskip minus 0.1\baselineskip} % chktex 1
-\setlength{\textfloatsep}{0.8\baselineskip plus 0.1\baselineskip minus 0.2\baselineskip} % chktex 1
-\setlength{\dblfloatsep}{0.7\baselineskip plus 0.1\baselineskip minus 0.1\baselineskip} % chktex 1
-\setlength{\dbltextfloatsep}{0.8\baselineskip plus 0.1\baselineskip minus 0.2\baselineskip} % chktex 1
+\setlength{\intextsep}{0.75\baselineskip plus 0.15\baselineskip minus 0.45\baselineskip} % chktex 1
+\setlength{\floatsep}{0.75\baselineskip plus 0.15\baselineskip minus 0.45\baselineskip} % chktex 1
+\setlength{\textfloatsep}{0.75\baselineskip plus 0.15\baselineskip minus 0.45\baselineskip} % chktex 1
+\setlength{\dblfloatsep}{0.75\baselineskip plus 0.15\baselineskip minus 0.45\baselineskip} % chktex 1
+\setlength{\dbltextfloatsep}{0.75\baselineskip plus 0.15\baselineskip minus 0.45\baselineskip} % chktex 1
 \renewcommand{\textfraction}{0.15}
 \renewcommand{\topfraction}{0.85}
 \renewcommand{\dbltopfraction}{0.85}
