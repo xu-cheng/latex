@@ -1,6 +1,14 @@
+% Check for obsoleted LaTeX packages
 \RequirePackage[l2tabu,orthodox]{nag}
+
+% Utility packages
+\RequirePackage{datenumber}
+\RequirePackage{etoolbox}
 \RequirePackage{iftex}
+\RequirePackage{ragged2e}
+\RequirePackage{regexpatch}
 \RequirePackage{xifthen}
+\RequirePackage{xstring}
 
 % Font setting
 \ifLuaTeX%
@@ -102,12 +110,6 @@
 \RequirePackage{booktabs}
 \RequirePackage{multirow}
 \newcommand{\tabincell}[2]{\begin{tabular}{@{}#1@{}}#2\end{tabular}}
-
-% Utility packages
-\RequirePackage{etoolbox}
-\RequirePackage{regexpatch}
-\RequirePackage{ragged2e}
-\RequirePackage{datenumber}
 
 % Equation style
 \allowdisplaybreaks[4]
