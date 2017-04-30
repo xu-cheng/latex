@@ -64,18 +64,18 @@
 \@oldcftbeforesubsecskip=\cftbeforesubsecskip%
 <% if chapter_defined? %>
 \xapptocmd{\l@chapter}{
-    \ifthenelse{\value{tocdepth} > 0}{\cftbeforechapskip=3pt}{}
+    \ifthenelse{\value{tocdepth} > 0}{\cftbeforechapskip=0.25\baselineskip}{}
 }{}{}
 <% end %>
 \xapptocmd{\l@section}{
 <% if chapter_defined? %>
     \ifthenelse{\value{tocdepth} > 0}{\cftbeforechapskip=\@oldcftbeforechapskip}{}
 <% end %>
-    \ifthenelse{\value{tocdepth} > 1}{\cftbeforesecskip=3pt}{}
+    \ifthenelse{\value{tocdepth} > 1}{\cftbeforesecskip=0.25\baselineskip}{}
 }{}{}
 \xapptocmd{\l@subsection}{
     \ifthenelse{\value{tocdepth} > 1}{\cftbeforesecskip=\@oldcftbeforesecskip}{}
-    \ifthenelse{\value{tocdepth} > 2}{\cftbeforesubsecskip=3pt}{}
+    \ifthenelse{\value{tocdepth} > 2}{\cftbeforesubsecskip=0.25\baselineskip}{}
 }{}{}
 \xapptocmd{\l@subsubsection}{
     \ifthenelse{\value{tocdepth} > 2}{\cftbeforesubsecskip=\@oldcftbeforesubsecskip}{}
@@ -115,8 +115,8 @@
 \RequirePackage[amsmath,amsthm,hyperref,thref]{ntheorem}
 \theoremnumbering{arabic}
 \theoremseparator{:}
-\theorempreskip{1.2ex plus 0ex minus 1ex}
-\theorempostskip{1.2ex plus 0ex minus 1ex}
+\theorempreskip{0.75\baselineskip plus 0.15\baselineskip minus 0.45\baselineskip} % chktex 1
+\theorempostskip{0.75\baselineskip plus 0.15\baselineskip minus 0.45\baselineskip} % chktex 1
 \theoremheaderfont{\normalfont\bfseries}
 \theoremsymbol{}
 \def\proofname{\textbf{Proof}}
