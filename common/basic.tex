@@ -116,10 +116,14 @@
 \numberwithin{equation}{<%= top_level %>}
 
 % Skip between equation and context
-\abovedisplayskip=10pt plus 2pt minus 2pt
-\abovedisplayshortskip=10pt plus 2pt minus 2pt
-\belowdisplayskip=\abovedisplayskip%
-\belowdisplayshortskip=\abovedisplayshortskip%
+% Ref: https://tex.stackexchange.com/a/69678
+\def\@setdisplayskip{
+    \abovedisplayskip=10pt plus 2pt minus 5pt
+    \abovedisplayshortskip=0pt plus 3pt
+    \belowdisplayskip=10pt plus 2pt minus 5pt
+    \belowdisplayshortskip=6pt plus 3pt minus 3pt
+}
+\xapptocmd\normalsize{\@setdisplayskip}{}{}
 
 % Floating objects style
 % Ref: https://liam0205.me/2017/04/30/floats-in-LaTeX-the-positioning-algorithm/
