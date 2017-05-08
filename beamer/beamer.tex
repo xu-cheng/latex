@@ -91,8 +91,6 @@
 
 % Beamer title
 \def\maketitle{
-    \let\@oldthepage\thepage%
-    \def\thepage{Titlepage}
     \begingroup
     \setbeamertemplate{footline}
     {
@@ -104,9 +102,12 @@
                 \hfill
             \end{beamercolorbox}}
     }
-    \frame{\titlepage}
+    \begin{frame}
+        \thispdfpagelabel{Title}
+        \hypersetup{pageanchor=false}
+        \titlepage
+    \end{frame}
     \endgroup
-    \let\thepage\@oldthepage
     \setcounter{framenumber}{0}
 }
 
