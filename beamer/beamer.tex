@@ -112,9 +112,8 @@
 
 % Beamer TOC
 \def\PrintTOC{
-    \section*{}
     \begin{frame}{\contentsname}
-        \pdfbookmark{\contentsname}{\contentsname}
+        \bookmark[page=\thepage,level=3]{\contentsname}
         \tableofcontents[subsectionstyle=hide]
     \end{frame}
 }
