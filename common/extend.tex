@@ -108,6 +108,20 @@
 \setlist[enumerate,3]{label=\emph{\alph*}),ref=\theenumii\emph{\alph*}} % chktex 9
 \setlist[description]{font=\bfseries}
 
+% Floating objects style
+% Ref: https://liam0205.me/2017/04/30/floats-in-LaTeX-the-positioning-algorithm/
+\RequirePackage{float}
+\setlength{\intextsep}{0.75\baselineskip plus 0.15\baselineskip minus 0.45\baselineskip} % chktex 1
+\setlength{\floatsep}{0.75\baselineskip plus 0.15\baselineskip minus 0.45\baselineskip} % chktex 1
+\setlength{\textfloatsep}{0.75\baselineskip plus 0.15\baselineskip minus 0.45\baselineskip} % chktex 1
+\setlength{\dblfloatsep}{0.75\baselineskip plus 0.15\baselineskip minus 0.45\baselineskip} % chktex 1
+\setlength{\dbltextfloatsep}{0.75\baselineskip plus 0.15\baselineskip minus 0.45\baselineskip} % chktex 1
+\renewcommand{\textfraction}{0.15}
+\renewcommand{\topfraction}{0.85}
+\renewcommand{\dbltopfraction}{0.85}
+\renewcommand{\bottomfraction}{0.65}
+\renewcommand{\floatpagefraction}{0.60}
+
 % Footer style
 \MakePerPage{footnote}
 
