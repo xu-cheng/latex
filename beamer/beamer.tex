@@ -12,31 +12,6 @@
 \setbeamertemplate{theorems}[numbered]
 
 % Variables Setting
-\let\@oldtitle\title%
-\DeclareDocumentCommand\title{o +m}
-{
-    \IfNoValueTF{#1}{
-        \@oldtitle{#2}
-    }{
-        \@oldtitle[#1]{#2}
-    }
-    \hypersetup{pdftitle={#2}}
-}
-\title{}
-
-\let\@oldauthor\author%
-\DeclareDocumentCommand\author{o +m}
-{
-    \IfNoValueTF{#1}{
-        \@oldauthor{#2}
-        \hypersetup{pdfauthor={#2}}
-    }{
-        \@oldauthor[#1]{#2}
-        \hypersetup{pdfauthor={#1}}
-    }
-}
-\author{}
-
 \let\@olddate\date%
 \DeclareDocumentCommand\date{m g g}
 {
