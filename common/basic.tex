@@ -125,7 +125,16 @@
     \belowdisplayskip=0.75\baselineskip plus 0.15\baselineskip minus 0.45\baselineskip % chktex 1
     \belowdisplayshortskip=0.5\baselineskip plus 0.25\baselineskip minus 0.25\baselineskip % chktex 1
 }
+\xapptocmd\Huge{\@setdisplayskip}{}{}
+\xapptocmd\huge{\@setdisplayskip}{}{}
+\xapptocmd\LARGE{\@setdisplayskip}{}{}
+\xapptocmd\Large{\@setdisplayskip}{}{}
+\xapptocmd\large{\@setdisplayskip}{}{}
 \xapptocmd\normalsize{\@setdisplayskip}{}{}
+\xapptocmd\small{\@setdisplayskip}{}{}
+\xapptocmd\footnotesize{\@setdisplayskip}{}{}
+\xapptocmd\scriptsize{\@setdisplayskip}{}{}
+\xapptocmd\tiny{\@setdisplayskip}{}{}
 
 % Caption style
 \DeclareCaptionLabelFormat{@caplabel}{#1~#2}
