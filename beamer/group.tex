@@ -1,0 +1,9 @@
+<%= input "./beamer/beamer.tex" %>
+
+% Ref: https://tex.stackexchange.com/a/27920
+\addtobeamertemplate{frametitle}{}{%
+    \begin{tikzpicture}[remember picture,overlay]
+        \node[anchor=north east,yshift=2pt] at (current page.north east)
+             {\includegraphics[height=0.8cm]{group-logo}};
+    \end{tikzpicture}
+}

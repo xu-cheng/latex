@@ -107,6 +107,8 @@ end
 desc "Build beamer template"
 task :beamer do
   LaTeXTemplate.new("mybeamer", :beamer, "./beamer/beamer.tex").save
+  LaTeXTemplate.new("mybeamer-group", :beamer, "./beamer/group.tex").save
+  FileUtils::Verbose.cp "./asset/group-logo.pdf", OUTPUT_DIR
 end
 
 desc "Build poster template"
