@@ -1,10 +1,14 @@
 <%= input "./beamer/beamer.tex" %>
 
+\newcommand{\grouplogo}{%
+<%= input "./asset/group-logo.tex" %>
+}
+
 % Ref: https://tex.stackexchange.com/a/27920
 \addtobeamertemplate{frametitle}{}{%
     \begin{tikzpicture}[remember picture,overlay]
         \node[anchor=north east] at (current page.north east)
-             {\includegraphics[height=0.7cm]{group-logo}};
+             {\resizebox{!}{0.7cm}{\grouplogo}};
     \end{tikzpicture}
     \vskip -0.7cm
 }
