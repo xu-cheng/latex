@@ -1,6 +1,6 @@
 <%= input "./article/article.tex" %>
 
-\RequirePackage{framed}
+\RequirePackage{mdframed}
 
 \newcounter{@reviewer}
 \newcounter{@comment}[@reviewer]
@@ -14,16 +14,20 @@
 }
 \newenvironment{comment}{%
     \stepcounter{@comment}
-    \begingroup
-    \colorlet{shadecolor}{black!8}
-    \begin{shaded*}
     \noindent
     R\arabic{@reviewer}.\arabic{@comment}:
     \itshape
 }{%
-    \end{shaded*}
-    \endgroup
+    \par
 }
+\surroundwithmdframed[
+    backgroundcolor=black!8,
+    hidealllines=true,
+    innertopmargin=\topskip,
+    innerbottommargin=\topskip,
+    skipabove=0,
+    skipbelow=0
+]{comment}
 \newenvironment{response}{%
     \noindent\textbf{Response:}
 }{%
