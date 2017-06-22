@@ -7,13 +7,20 @@
 
 \newcommand{\newreviewer}{%
     \stepcounter{@reviewer}
-    \noindent
-    {\large\bfseries\underline{Reviewer \arabic{@reviewer}}}
-    \par
-    \vskip\topskip
+    \phantomsection
+    \bookmark[dest=\@currentHref,rellevel=1,keeplevel]{Reviewer \arabic{@reviewer}}
+    {
+        \large
+        \vskip\topskip
+        \noindent\bfseries\underline{Reviewer \arabic{@reviewer}}
+        \par
+        \vskip\topskip
+    }
 }
 \newenvironment{comment}{%
     \stepcounter{@comment}
+    \phantomsection
+    \bookmark[dest=\@currentHref,rellevel=2,keeplevel]{Comment \arabic{@comment}}
     \noindent
     R\arabic{@reviewer}.\arabic{@comment}:
     \itshape
@@ -29,6 +36,8 @@
     skipbelow=0
 ]{comment}
 \newenvironment{response}{%
+    \phantomsection
+    \bookmark[dest=\@currentHref,rellevel=3,keeplevel]{Response}
     \noindent\textbf{Response:}
 }{%
     \par
