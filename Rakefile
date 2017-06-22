@@ -92,6 +92,7 @@ task :all => [:article, :report, :book, :beamer, :poster]
 desc "Build article template"
 task :article do
   LaTeXTemplate.new("myarticle", :article, "./article/article.tex").save
+  LaTeXTemplate.new("myreviewresponse", :article, "./article/reviewresponse.tex").save
 end
 
 desc "Build report template"

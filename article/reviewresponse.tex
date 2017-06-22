@@ -1,0 +1,32 @@
+<%= input "./article/article.tex" %>
+
+\RequirePackage{framed}
+
+\newcounter{@reviewer}
+\newcounter{@comment}[@reviewer]
+
+\newcommand{\newreviewer}{%
+    \stepcounter{@reviewer}
+    \noindent
+    {\large\bfseries\underline{Reviewer \arabic{@reviewer}}}
+    \par
+    \vskip\topskip
+}
+\newenvironment{comment}{%
+    \stepcounter{@comment}
+    \begingroup
+    \colorlet{shadecolor}{black!8}
+    \begin{shaded*}
+    \noindent
+    R\arabic{@reviewer}.\arabic{@comment}:
+    \itshape
+}{%
+    \end{shaded*}
+    \endgroup
+}
+\newenvironment{response}{%
+    \noindent\textbf{Response:}
+}{%
+    \par
+    \vskip\topskip
+}
