@@ -1,9 +1,7 @@
-<%= license %>
+<%= input "./common/head.tex" %>
 
-\NeedsTeXFormat{LaTeX2e}[1999/12/01]
-\ProvidesClass{<%= name %>}
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{tikzposter}}
-\ProcessOptions%
+\ProcessOptionsX%
 \PassOptionsToPackage{table,dvipsnames}{xcolor} % extra options for xcolor
 \LoadClass{tikzposter}
 
