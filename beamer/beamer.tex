@@ -120,6 +120,20 @@
     \else\fi
 }
 
+% Bibliography
+\RequirePackage[bibstyle=alphabetic,citestyle=alphabetic]{biblatex}
+\def\PrintRef{
+    \begingroup
+    \setbeamertemplate{frametitle continuation}{}
+    \begin{frame}[t,allowframebreaks]{\refname}
+        \bookmark[page=\thepage,startatroot]{\refname}
+        \setbeamertemplate{bibliography item}[text]
+        \renewcommand*{\bibfont}{\scriptsize}
+        \printbibliography%
+    \end{frame}
+    \endgroup
+}
+
 % Thanks Q&A page
 \def\PrintQA{
     \begin{frame}
