@@ -1,17 +1,19 @@
 <%= input "./article/article.tex" %>
 
 \RequirePackage{mdframed}
+\RequirePackage{needspace}
 
 \newcounter{@reviewer}
 \newcounter{@comment}[@reviewer]
 
 \newcommand{\newreviewer}{%
-    \stepcounter{@reviewer}
-    \phantomsection
-    \bookmark[dest=\@currentHref,rellevel=1,keeplevel]{Reviewer \arabic{@reviewer}}
     {
         \large
         \vskip\topskip
+        \needspace{5\baselineskip}
+        \stepcounter{@reviewer}
+        \phantomsection
+        \bookmark[dest=\@currentHref,rellevel=1,keeplevel]{Reviewer \arabic{@reviewer}}
         \noindent\bfseries\underline{Reviewer \arabic{@reviewer}}
         \par
         \vskip\topskip
