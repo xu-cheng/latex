@@ -96,9 +96,11 @@
 \RequirePackage[ruled,vlined]{algorithm2e}
 \SetVlineSkip{0pt}
 
+<% if category != :beamer %>
 % Caption related packages
 \RequirePackage{caption}
 \RequirePackage{subcaption}
+<% end %>
 
 % Figure related packages
 \RequirePackage{graphicx}
@@ -135,17 +137,16 @@
 \xapptocmd\scriptsize{\@setdisplayskip}{}{}
 \xapptocmd\tiny{\@setdisplayskip}{}{}
 
+<% if category != :beamer %>
 % Caption style
 \DeclareCaptionLabelFormat{@caplabel}{#1~#2}
 \captionsetup{
-<% if category == :beamer %>
-    compatibility=false,
-<% end %>
     labelformat=@caplabel,
     format=hang,
     labelsep=quad,
     skip=0.5\baselineskip plus 0.25\baselineskip minus 0.25\baselineskip% chktex 1
 }
+<% end %>
 
 % Utility function
 \RequirePackage{soul} % offers \hl
