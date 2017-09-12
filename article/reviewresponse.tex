@@ -6,7 +6,7 @@
 \newcounter{@reviewer}
 \newcounter{@comment}[@reviewer]
 
-\newcommand{\newreviewer}{%
+\NewDocumentCommand\newreviewer{o}{%
     {
         \large
         \vskip\topskip
@@ -14,7 +14,7 @@
         \stepcounter{@reviewer}
         \phantomsection
         \bookmark[dest=\@currentHref,rellevel=1,keeplevel]{Reviewer \arabic{@reviewer}}
-        \noindent\bfseries\underline{Reviewer \arabic{@reviewer}}
+        \noindent\bfseries\underline{Reviewer \arabic{@reviewer}\IfValueT{#1}{ #1}}
         \par
         \vskip\topskip
     }
