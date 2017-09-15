@@ -54,6 +54,7 @@
     bookmarksopenlevel=3,
     colorlinks=true,
     allcolors=@hyperreflinkred,
+<% if name !~ /reviewresponse/ %>
     pdfinfo={
         Template.name={<%= name %>},
         Template.author={Xu Cheng <xucheng@me.com>},
@@ -62,6 +63,7 @@
         Template.commit={<%= commit %>},
         Template.url={https://github.com/xu-cheng/latex},
     },
+<% end %>
 <% if category == :beamer %>
     pdfcenterwindow=true,
     pdfstartview={Fit},
