@@ -11,20 +11,22 @@
         \large
         \vskip\topskip%
         \needspace{5\baselineskip}
-        \stepcounter{@reviewer}
+        \refstepcounter{@reviewer}
         \phantomsection%
         \bookmark[dest=\@currentHref,rellevel=1,keeplevel]{Reviewer \arabic{@reviewer}}
         \noindent\bfseries\underline{Reviewer \arabic{@reviewer}\IfValueT{#1}{ #1}}
+        \protected@edef\@currentlabelname{Reviewer \arabic{@reviewer}}
         \par
         \vskip\topskip%
     }
 }
 \NewDocumentEnvironment{comment}{o}{%
-    \stepcounter{@comment}
+    \refstepcounter{@comment}
     \phantomsection%
     \bookmark[dest=\@currentHref,rellevel=2,keeplevel]{Comment \arabic{@comment}\IfValueT{#1}{ #1}}
     \noindent
     R\arabic{@reviewer}.\IfValueTF{#1}{#1}{\arabic{@comment}}:
+    \protected@edef\@currentlabelname{R\arabic{@reviewer}.\IfValueTF{#1}{#1}{\arabic{@comment}}}
     \itshape%
 }{%
     \par
