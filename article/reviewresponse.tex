@@ -9,23 +9,23 @@
 \NewDocumentCommand\newreviewer{o}{%
     {
         \large
-        \vskip\topskip
+        \vskip\topskip%
         \needspace{5\baselineskip}
         \stepcounter{@reviewer}
-        \phantomsection
+        \phantomsection%
         \bookmark[dest=\@currentHref,rellevel=1,keeplevel]{Reviewer \arabic{@reviewer}}
         \noindent\bfseries\underline{Reviewer \arabic{@reviewer}\IfValueT{#1}{ #1}}
         \par
-        \vskip\topskip
+        \vskip\topskip%
     }
 }
-\newenvironment{comment}{%
+\NewDocumentEnvironment{comment}{o}{%
     \stepcounter{@comment}
-    \phantomsection
+    \phantomsection%
     \bookmark[dest=\@currentHref,rellevel=2,keeplevel]{Comment \arabic{@comment}}
     \noindent
-    R\arabic{@reviewer}.\arabic{@comment}:
-    \itshape
+    R\arabic{@reviewer}.\arabic{@comment}\IfValueT{#1}{ #1}:
+    \itshape%
 }{%
     \par
 }
@@ -38,10 +38,10 @@
     skipbelow=0
 ]{comment}
 \newenvironment{response}{%
-    \phantomsection
+    \phantomsection%
     \bookmark[dest=\@currentHref,rellevel=3,keeplevel]{Response}
     \noindent\textbf{Response:}
 }{%
     \par
-    \vskip\topskip
+    \vskip\topskip%
 }
