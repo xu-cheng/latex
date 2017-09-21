@@ -22,7 +22,7 @@
 \NewDocumentEnvironment{comment}{o}{%
     \stepcounter{@comment}
     \phantomsection%
-    \bookmark[dest=\@currentHref,rellevel=2,keeplevel]{Comment \arabic{@comment}}
+    \bookmark[dest=\@currentHref,rellevel=2,keeplevel]{Comment \arabic{@comment}\IfValueT{#1}{ #1}}
     \noindent
     R\arabic{@reviewer}.\arabic{@comment}\IfValueT{#1}{ #1}:
     \itshape%
