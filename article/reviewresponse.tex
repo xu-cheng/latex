@@ -23,7 +23,7 @@
 \NewDocumentEnvironment{comment}{o}{%
     \refstepcounter{@comment}
     \phantomsection%
-    \bookmark[dest=\@currentHref,rellevel=2,keeplevel]{Comment \arabic{@comment}\IfValueT{#1}{ #1}}
+    \bookmark[dest=\@currentHref,rellevel=2,keeplevel]{Comment \IfValueTF{#1}{#1}{\arabic{@comment}}}
     \noindent
     R\arabic{@reviewer}.\IfValueTF{#1}{#1}{\arabic{@comment}}:
     \protected@edef\@currentlabelname{R\arabic{@reviewer}.\IfValueTF{#1}{#1}{\arabic{@comment}}}
