@@ -20,25 +20,44 @@
         \vskip\topskip%
     }
 }
-\NewDocumentEnvironment{comment}{o}{%
-    \refstepcounter{@comment}
+
+\NewDocumentEnvironment{comment}{s o}{%
+    \begingroup
+    \IfBooleanTF{#1}{%
+        \IfValueF{#2}{%
+            \PackageError{<%= name %>}{comment* requires an extra argument}{}
+        }
+    }{%
+        \refstepcounter{@comment}
+    }
+    \def\@toclabel{\IfBooleanTF{#1}{#2}{Comment \IfValueTF{#2}{#2}{\arabic{@comment}}}}
+    \def\@label{\IfBooleanTF{#1}{#2}{R\arabic{@reviewer}.\IfValueTF{#2}{#2}{\arabic{@comment}}}}
     \phantomsection%
-    \bookmark[dest=\@currentHref,rellevel=2,keeplevel]{Comment \IfValueTF{#1}{#1}{\arabic{@comment}}}
+    \bookmark[dest=\@currentHref,rellevel=2,keeplevel]{\@toclabel}
     \noindent
-    R\arabic{@reviewer}.\IfValueTF{#1}{#1}{\arabic{@comment}}:
-    \protected@edef\@currentlabelname{R\arabic{@reviewer}.\IfValueTF{#1}{#1}{\arabic{@comment}}}
+    \@label:
+    \protected@edef\@currentlabelname{\@label}
     \itshape%
 }{%
     \par
+    \endgroup
 }
-\surroundwithmdframed[
+\ExplSyntaxOn%
+\cs_new:cpn {comment*} {\comment*}%
+\cs_new_eq:cN {endcomment*} \endcomment%
+\ExplSyntaxOff%
+
+\mdfdefinestyle{@commentstyle}{
     backgroundcolor=black!8,
     hidealllines=true,
     innertopmargin=\topskip,
     innerbottommargin=\topskip,
     skipabove=0,
     skipbelow=0
-]{comment}
+}
+\surroundwithmdframed[style=@commentstyle]{comment}
+\surroundwithmdframed[style=@commentstyle]{comment*}
+
 \newenvironment{response}{%
     \phantomsection%
     \bookmark[dest=\@currentHref,rellevel=3,keeplevel]{Response}
