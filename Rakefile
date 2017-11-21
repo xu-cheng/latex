@@ -6,12 +6,6 @@ require "time"
 
 OUTPUT_DIR = Pathname.new("dist")
 
-class String
-  def undent
-    gsub(/^.{#{(slice(/^ +/) || '').length}}/, "")
-  end
-end
-
 class LaTeXTemplate
   attr_reader :category, :date, :name, :template
 
@@ -38,7 +32,7 @@ class LaTeXTemplate
     `git rev-parse --verify HEAD`.strip
   end
 
-  def license; <<-EOS.undent
+  def license; <<~EOS
     %
     % Template:
     %   - name: #{@name}
