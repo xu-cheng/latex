@@ -25,12 +25,6 @@
 \def\author#1{\gdef\@author{#1}\hypersetup{pdfauthor={#1}}}
 \author{}
 
-<% if chapter_defined? %>
-% Figure and table numbering style
-\renewcommand{\thetable}{\arabic{chapter}.\arabic{table}}
-\renewcommand{\thefigure}{\arabic{chapter}-\arabic{figure}}
-<% end %>
-
 % Section & TOC style
 \setcounter{secnumdepth}{3}
 \setcounter{tocdepth}{1}
