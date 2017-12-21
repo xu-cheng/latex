@@ -47,13 +47,17 @@
 
 % hyperref setting
 \RequirePackage[unicode]{hyperref}
+<% if category != :beamer %>
 \definecolor{@hyperreflinkred}{RGB}{128,23,31}
+<% end %>
 \hypersetup{
     bookmarksnumbered=true,
     bookmarksopen=true,
     bookmarksopenlevel=3,
     colorlinks=true,
+<% if category != :beamer %>
     allcolors=@hyperreflinkred,
+<% end %>
 <% if name !~ /reviewresponse/ %>
     pdfinfo={
         Template.name={<%= name %>},
