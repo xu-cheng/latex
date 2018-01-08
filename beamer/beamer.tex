@@ -5,7 +5,7 @@
 \DeclareOptionX{biblatex}[]{
     \@biblatextrue
     \ifthenelse{\equal{#1}{}}{
-        \PassOptionsToPackage{bibstyle=alphabetic,citestyle=alphabetic}{biblatex}
+        \PassOptionsToPackage{bibstyle=alphabetic,citestyle=alphabetic,giveninits=true}{biblatex}
     }{
         \PassOptionsToPackage{#1}{biblatex}
     }
