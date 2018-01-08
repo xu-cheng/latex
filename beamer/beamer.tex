@@ -13,7 +13,9 @@
 
 \DeclareOptionX*{\PassOptionsToClass{\CurrentOption}{beamer}}
 \ProcessOptionsX%
-\LoadClass[utf8,compress,xcolor={table,dvipsnames}]{beamer}
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{table,dvipsnames}{xcolor}
+\LoadClass[compress,xcolor]{beamer}
 
 <%= input "./common/basic.tex" %>
 
