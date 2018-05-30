@@ -1,5 +1,12 @@
 <%= input "./common/head.tex" %>
 
+\newif\if@authblk
+\@authblkfalse
+\DeclareOptionX{authblk}[]{
+    \@authblktrue
+    \ifthenelse{\equal{#1}{}}{}{\PassOptionsToPackage{#1}{authblk}}
+}
+
 \DeclareOptionX*{\PassOptionsToClass{\CurrentOption}{tikzposter}}
 \ProcessOptionsX%
 \PassOptionsToPackage{table,dvipsnames}{xcolor} % extra options for xcolor
@@ -8,11 +15,22 @@
 <%= input "./common/basic.tex" %>
 
 % Variables Setting
+
 \def\title#1{\gdef\@title{#1}\hypersetup{pdftitle={#1}}}
 \title{}
 
-\def\author#1{\gdef\@author{#1}\hypersetup{pdfauthor={#1}}}
-\author{}
+\if@authblk
+    \RequirePackage{authblk}
+    \renewcommand\AB@affilsepx{\quad\protect\Affilfont}
+    \renewcommand\maketitle{%
+        \AB@maketitle%
+        \hypersetup{pdfauthor={\AB@authlist}}
+    }
+\else
+    \def\author#1{\gdef\@author{#1}\hypersetup{pdfauthor={#1}}}
+    \author{}
+\fi
+
 
 % Poster style
 \usetheme{Autumn}
