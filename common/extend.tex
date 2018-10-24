@@ -97,6 +97,13 @@
 \setlist[enumerate,1]{label=\arabic*.,ref=\arabic*}
 \setlist[enumerate,2]{label*=\arabic*,ref=\theenumi.\arabic*}
 \setlist[enumerate,3]{label=\emph{\alph*}),ref=\theenumii\emph{\alph*}} % chktex 9
+% set enumerate* style
+\BeforeBeginEnvironment{enumerate*}{%
+    \setlist[enumerate,1]{label=(\roman*),ref=(\roman*)} % chktex 36
+}
+\AfterEndEnvironment{enumerate*}{%
+    \setlist[enumerate,1]{label=\arabic*.,ref=\arabic*}
+}
 \setlist[description]{font=\bfseries}
 
 % Floating objects style
