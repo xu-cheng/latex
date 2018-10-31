@@ -120,8 +120,10 @@
 \renewcommand{\bottomfraction}{0.65}
 \renewcommand{\floatpagefraction}{0.60}
 
+<% if chapter_defined? %>
 % Footer style
 \RequirePackage[perpage]{footmisc}
+<% end %>
 
 % Theorem style
 \RequirePackage[amsmath,amsthm,hyperref,thref]{ntheorem}
