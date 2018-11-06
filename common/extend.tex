@@ -17,6 +17,7 @@
 \RequirePackage{afterpage}
 \RequirePackage{appendix}
 \RequirePackage[titles]{tocloft}
+\RequirePackage{tocbibind}
 
 % Variables setting
 \def\title#1{\gdef\@title{#1}\hypersetup{pdftitle={#1}}}
@@ -31,19 +32,8 @@
 \contentsmargin{2.0em}
 
 <% if chapter_defined? %>
-\titleformat{\chapter}
-    {
-        \centering
-        \LARGE
-        \bfseries
-    }
-    {\chaptertitlename~\thechapter}
-    {1em}
-    {}
+\titleformat{\chapter}{\normalfont\LARGE\bfseries\filcenter}{\chaptertitlename~\thechapter}{1em}{}
 <% end %>
-\titleformat*{\section}{\Large\bfseries}
-\titleformat*{\subsection}{\large\bfseries}
-\titleformat*{\subsubsection}{\large\bfseries}
 
 <% if chapter_defined? %>
 \newskip\@oldcftbeforechapskip
