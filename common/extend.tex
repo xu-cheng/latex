@@ -126,20 +126,21 @@
 <% end %>
 
 % Theorem style
-\RequirePackage[amsmath,amsthm,hyperref,thref]{ntheorem}
-\theoremnumbering{arabic}
-\theoremseparator{:}
-\theorempreskip{0.75\baselineskip plus 0.15\baselineskip minus 0.45\baselineskip} % chktex 1
-\theorempostskip{0.75\baselineskip plus 0.15\baselineskip minus 0.45\baselineskip} % chktex 1
-\theoremheaderfont{\normalfont\bfseries}
-\theoremsymbol{}
-\def\proofname{\textbf{Proof}}
-\theoremstyle{definition}
-\newtheorem{definition}{Definition}[<%= top_level %>]
-\newtheorem{proposition}{Proposition}[<%= top_level %>]
-\newtheorem{lemma}{Lemma}[<%= top_level %>]
-\newtheorem{theorem}{Theorem}[<%= top_level %>]
-\newtheorem{axiom}{Axiom}[<%= top_level %>]
-\newtheorem{corollary}{Corollary}[<%= top_level %>]
-\newtheorem{exercise}{Exercise}[<%= top_level %>]
-\newtheorem{example}{Example}[<%= top_level %>]
+
+\RequirePackage{amsthm}
+\RequirePackage{thmtools,thm-restate}
+<% if chapter_defined? %>
+\declaretheorem[numberwithin=chapter]{axiom}
+\declaretheorem[numberwithin=chapter,style=definition]{definition}
+\declaretheorem[numberwithin=chapter]{example}
+\declaretheorem[numberwithin=chapter]{lemma}
+\declaretheorem[numberwithin=chapter]{theorem}
+\declaretheorem[numberwithin=chapter,style=remark]{remark}
+<% else %>
+\declaretheorem{axiom}
+\declaretheorem[style=definition]{definition}
+\declaretheorem{example}
+\declaretheorem{lemma}
+\declaretheorem{theorem}
+\declaretheorem[style=remark]{remark}
+<% end %>
