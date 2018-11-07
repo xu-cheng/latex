@@ -52,8 +52,42 @@
 \RequirePackage{color}
 \RequirePackage[table,dvipsnames]{xcolor}
 
+% Math related packages
+\RequirePackage{amsmath}
+\RequirePackage{amssymb}
+\let\emptyset\varnothing%
+\RequirePackage{amsfonts}
+\RequirePackage{mathrsfs}
+\RequirePackage{latexsym}
+<% if category != :beamer %>
+\RequirePackage{bm}
+<% end %>
+\RequirePackage{fancynum}
+\setfnumgsym{\,}
+\RequirePackage[ruled,vlined]{algorithm2e}
+\SetVlineSkip{0pt}
+
+<% if category != :beamer %>
+% Caption related packages
+\RequirePackage{caption}
+\RequirePackage{subcaption}
+<% end %>
+
+% Figure related packages
+\RequirePackage{graphicx}
+\RequirePackage{tikz}
+\RequirePackage{overpic}
+
+% Table related packages
+\RequirePackage{array}
+\RequirePackage{tabu}
+\RequirePackage{booktabs}
+\RequirePackage{multirow}
+\RequirePackage{makecell}
+
 % hyperref setting
 \RequirePackage[unicode]{hyperref}
+\RequirePackage{cleveref}
 <% if category != :beamer %>
 \definecolor{@hyperreflinkred}{RGB}{128,23,31}
 <% end %>
@@ -95,39 +129,6 @@
 <% end %>
 }
 \RequirePackage{bookmark}
-
-% Math related packages
-\RequirePackage{amsmath}
-\RequirePackage{amssymb}
-\let\emptyset\varnothing%
-\RequirePackage{amsfonts}
-\RequirePackage{mathrsfs}
-\RequirePackage{latexsym}
-<% if category != :beamer %>
-\RequirePackage{bm}
-<% end %>
-\RequirePackage{fancynum}
-\setfnumgsym{\,}
-\RequirePackage[ruled,vlined]{algorithm2e}
-\SetVlineSkip{0pt}
-
-<% if category != :beamer %>
-% Caption related packages
-\RequirePackage{caption}
-\RequirePackage{subcaption}
-<% end %>
-
-% Figure related packages
-\RequirePackage{graphicx}
-\RequirePackage{tikz}
-\RequirePackage{overpic}
-
-% Table related packages
-\RequirePackage{array}
-\RequirePackage{tabu}
-\RequirePackage{booktabs}
-\RequirePackage{multirow}
-\RequirePackage{makecell}
 
 % Equation style
 \allowdisplaybreaks[4]
