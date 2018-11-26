@@ -82,7 +82,7 @@
 \RequirePackage{tabu}
 \RequirePackage{booktabs}
 \RequirePackage{multirow}
-\RequirePackage{makecell}
+\newcommand{\tabincell}[2]{\begin{tabular}{@{}#1@{}}#2\end{tabular}}
 
 % hyperref setting
 \RequirePackage[unicode]{hyperref}
