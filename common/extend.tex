@@ -18,6 +18,7 @@
 \RequirePackage{appendix}
 \RequirePackage[titles]{tocloft}
 \RequirePackage{tocbibind}
+\RequirePackage{footmisc}
 
 % Variables setting
 \def\title#1{\gdef\@title{#1}\hypersetup{pdftitle={#1}}}
@@ -110,27 +111,22 @@
 \renewcommand{\bottomfraction}{0.65}
 \renewcommand{\floatpagefraction}{0.60}
 
-<% if chapter_defined? %>
-% Footer style
-\RequirePackage[perpage]{footmisc}
-<% end %>
-
 % Theorem style
 
 \RequirePackage{amsthm}
 \RequirePackage{thmtools,thm-restate}
 <% if chapter_defined? %>
-\declaretheorem[numberwithin=chapter]{axiom}
+\declaretheorem[numberwithin=chapter,style=plain]{axiom}
 \declaretheorem[numberwithin=chapter,style=definition]{definition}
-\declaretheorem[numberwithin=chapter]{example}
-\declaretheorem[numberwithin=chapter]{lemma}
-\declaretheorem[numberwithin=chapter]{theorem}
+\declaretheorem[numberwithin=chapter,style=plain]{example}
+\declaretheorem[numberwithin=chapter,style=plain]{lemma}
+\declaretheorem[numberwithin=chapter,style=plain]{theorem}
 \declaretheorem[numberwithin=chapter,style=remark]{remark}
 <% else %>
-\declaretheorem{axiom}
+\declaretheorem[style=plain]{axiom}
 \declaretheorem[style=definition]{definition}
-\declaretheorem{example}
-\declaretheorem{lemma}
-\declaretheorem{theorem}
+\declaretheorem[style=plain]{example}
+\declaretheorem[style=plain]{lemma}
+\declaretheorem[style=plain]{theorem}
 \declaretheorem[style=remark]{remark}
 <% end %>
