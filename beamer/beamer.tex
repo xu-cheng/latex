@@ -87,7 +87,7 @@
 \hypersetup{allcolors=structure.fg}
 
 % Beamer title
-\def\maketitle{
+\DeclareDocumentCommand\maketitle{}{
     \begingroup
     \setbeamertemplate{footline}
     {
@@ -109,7 +109,7 @@
 }
 
 % Beamer TOC
-\def\PrintTOC{
+\newcommand{\PrintTOC}{
     \begin{frame}{\contentsname}
         \bookmark[page=\thepage,level=3]{\contentsname}
         \tableofcontents[subsectionstyle=hide]
@@ -119,8 +119,8 @@
 \newif\if@TOCAtBeginSection
 \@TOCAtBeginSectiontrue
 
-\def\EnableTOCAtBeginSection{\@TOCAtBeginSectiontrue}
-\def\DisableTOCAtBeginSection{\@TOCAtBeginSectionfalse}
+\newcommand{\EnableTOCAtBeginSection}{\@TOCAtBeginSectiontrue}
+\newcommand{\DisableTOCAtBeginSection}{\@TOCAtBeginSectionfalse}
 
 \AtBeginSection[] {
     \if@TOCAtBeginSection
@@ -141,7 +141,7 @@
 % Bibliography
 \if@biblatex
     \RequirePackage{biblatex}
-    \def\PrintRef{
+    \newcommand{\PrintRef}{
         \begingroup
         \setbeamertemplate{frametitle continuation}{}
         \begin{frame}[t,allowframebreaks]{\refname}
@@ -155,7 +155,7 @@
 \fi
 
 % Thanks Q&A page
-\def\PrintQA{
+\newcommand{\PrintQA}{
     \begin{frame}
         \Huge\centering
         Thanks \\[1ex]
@@ -164,4 +164,4 @@
 }
 
 % Beamer Utility function
-\long\def\themecolor#1{{\usebeamercolor[fg]{structure} #1}}
+\newcommand{\themecolor}[1]{{\usebeamercolor[fg]{structure} #1}}
