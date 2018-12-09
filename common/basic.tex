@@ -32,17 +32,6 @@
 % Better text justifying
 \RequirePackage{microtype}
 
-% Paper size setting
-\ifthenelse{\isnamedefined{pagewidth}}{
-    \pagewidth=\paperwidth%
-    \pageheight=\paperheight%
-}{
-    \ifthenelse{\isnamedefined{pdfpagewidth}}{
-        \pdfpagewidth=\paperwidth%
-        \pdfpageheight=\paperheight%
-    }{}
-}
-
 % Indent of paragraph and skip between paragraphs
 \setlength{\parindent}{2em}
 \setlength{\parskip}{0pt plus 2pt}
