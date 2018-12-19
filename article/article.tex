@@ -8,9 +8,16 @@
 <%= input "./common/extend.tex" %>
 
 % custom title
-\DeclareDocumentCommand\maketitle{}{%
+\renewcommand{\@maketitle}{%
+    \newpage
+    \null%
+    \vskip 1.5ex%
     \begin{center}%
-        {\bfseries\sffamily\Large \@title} \\[0.8em]%
-        {\sffamily \@author\hskip 2em\@date}%
+        \let\footnote\thanks%
+        {\bfseries\sffamily\LARGE \@title \par}%
+        \vskip 1.5ex%
+        {\sffamily\large \@author\hskip 2em\@date\par}%
     \end{center}%
+    \par%
+    \vskip 1.5ex%
 }
