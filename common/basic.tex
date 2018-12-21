@@ -75,12 +75,14 @@
 \newcommand{\tabincell}[2]{\begin{tabular}{@{}#1@{}}#2\end{tabular}}
 
 % hyperref setting
-\RequirePackage[unicode]{hyperref}
+\RequirePackage{hyperref}
 \RequirePackage[capitalise]{cleveref}
 <% if category != :beamer %>
 \definecolor{@hyperreflinkred}{RGB}{128,23,31}
 <% end %>
 \hypersetup{
+    unicode,
+    psdextra,
     bookmarksnumbered=true,
     bookmarksopen=true,
     bookmarksopenlevel=3,
@@ -102,19 +104,19 @@
     pdfcenterwindow=true,
     pdfstartview={Fit},
     pdfpagemode={FullScreen},
-    pdfpagelayout={SinglePage}
+    pdfpagelayout={SinglePage},
 <% elsif category == :poster %>
     plainpages=false,
     pdfcenterwindow=true,
     pdfstartview={Fit},
     pdfpagemode={UseNone},
-    pdfpagelayout={SinglePage}
+    pdfpagelayout={SinglePage},
 <% else %>
     linktoc=page,
     plainpages=false,
     pdfstartview={XYZ null null 1},
     pdfpagemode={UseOutlines},
-    pdfpagelayout={OneColumn}
+    pdfpagelayout={OneColumn},
 <% end %>
 }
 \RequirePackage{bookmark}
