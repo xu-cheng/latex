@@ -78,7 +78,7 @@
 \RequirePackage{hyperref}
 \RequirePackage[capitalise]{cleveref}
 <% if category != :beamer %>
-\definecolor{@hyperreflinkred}{RGB}{128,23,31}
+\definecolor{@linkcolor}{RGB}{128,23,31}
 <% end %>
 \hypersetup{
     unicode,
@@ -88,7 +88,7 @@
     bookmarksopenlevel=3,
     colorlinks=true,
 <% if category != :beamer %>
-    allcolors=@hyperreflinkred,
+    allcolors=@linkcolor,
 <% end %>
 <% if name !~ /reviewresponse/ %>
     pdfinfo={
