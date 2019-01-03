@@ -30,19 +30,21 @@
 
 % Variables Setting
 \let\@olddate\date%
-\DeclareDocumentCommand\date{m g g}
+\DeclareDocumentCommand\date{o m g g}
 {
-    \IfNoValueTF{#2}{
-        \@olddate{#1} % only one argument
+    \IfNoValueTF{#3}{
+        % only one argument
+        \gdef\@date{#2}
     }{
-        \IfNoValueTF{#3}{ % two arguments
-            \setdate{#1}{#2}{1}
-            \@olddate{\datemonthname~\thedateyear}
+        \IfNoValueTF{#4}{ % two arguments
+            \setdate{#2}{#3}{1}
+            \gdef\@date{\datemonthname~\thedateyear}
         }{  % three arguments
-            \setdate{#1}{#2}{#3}
-            \@olddate{\datedate}
+            \setdate{#2}{#3}{#4}
+            \gdef\@date{\datedate}
         }
     }
+    \IfValueTF{#1}{\@olddate[#1]{\@date}}{\@olddate{\@date}}
 }
 \setdatetoday%
 \date{\thedateyear}{\thedatemonth}{\thedateday}
