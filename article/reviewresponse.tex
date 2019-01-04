@@ -8,39 +8,39 @@
 
 \NewDocumentCommand\newreviewer{o}{%
     {
-        \large
+        \large%
         \vskip\topskip%
-        \needspace{8\baselineskip}
-        \refstepcounter{@reviewer}
+        \needspace{8\baselineskip}%
+        \refstepcounter{@reviewer}%
         \phantomsection%
-        \bookmark[dest=\@currentHref,rellevel=1,keeplevel]{Reviewer \arabic{@reviewer}}
-        \noindent\bfseries\underline{Reviewer \arabic{@reviewer}\IfValueT{#1}{ #1}}
-        \protected@edef\@currentlabelname{Reviewer \arabic{@reviewer}}
-        \par
+        \bookmark[dest=\@currentHref,rellevel=1,keeplevel]{Reviewer \arabic{@reviewer}}%
+        \noindent\bfseries\underline{Reviewer \arabic{@reviewer}\IfValueT{#1}{ #1}}%
+        \protected@edef\@currentlabelname{Reviewer \arabic{@reviewer}}%
+        \par%
         \vskip\topskip%
     }
 }
 
 \NewDocumentEnvironment{comment}{s o}{%
-    \begingroup
+    \begingroup%
     \IfBooleanTF{#1}{%
         \IfValueF{#2}{%
-            \PackageError{<%= name %>}{comment* requires an extra argument}{}
+            \PackageError{<%= name %>}{comment* requires an extra argument}{}%
         }
     }{%
-        \refstepcounter{@comment}
+        \refstepcounter{@comment}%
     }
-    \def\@toclabel{\IfBooleanTF{#1}{#2}{Comment \IfValueTF{#2}{#2}{\arabic{@comment}}}}
-    \def\@label{\IfBooleanTF{#1}{#2}{R\arabic{@reviewer}.\IfValueTF{#2}{#2}{\arabic{@comment}}}}
+    \def\@toclabel{\IfBooleanTF{#1}{#2}{Comment \IfValueTF{#2}{#2}{\arabic{@comment}}}}%
+    \def\@label{\IfBooleanTF{#1}{#2}{R\arabic{@reviewer}.\IfValueTF{#2}{#2}{\arabic{@comment}}}}%
     \phantomsection%
-    \bookmark[dest=\@currentHref,rellevel=2,keeplevel]{\@toclabel}
-    \noindent
-    \@label:
-    \protected@edef\@currentlabelname{\@label}
+    \bookmark[dest=\@currentHref,rellevel=2,keeplevel]{\@toclabel}%
+    \noindent%
+    \@label:%
+    \protected@edef\@currentlabelname{\@label}%
     \itshape%
 }{%
-    \par
-    \endgroup
+    \par%
+    \endgroup%
 }
 \ExplSyntaxOn%
 \cs_new:cpn {comment*} {\comment*}%
@@ -60,9 +60,9 @@
 
 \newenvironment{response}{%
     \phantomsection%
-    \bookmark[dest=\@currentHref,rellevel=3,keeplevel]{Response}
-    \noindent\textbf{Response:}
+    \bookmark[dest=\@currentHref,rellevel=3,keeplevel]{Response}%
+    \noindent\textbf{Response:}%
 }{%
-    \par
+    \par%
     \vskip\topskip%
 }
