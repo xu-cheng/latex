@@ -130,3 +130,9 @@
 \declaretheorem[style=plain]{theorem}
 \declaretheorem[style=remark]{remark}
 <% end %>
+
+% Equation style
+\allowdisplaybreaks[4]
+<% if name !~ /reviewresponse/ %>
+\numberwithin{equation}{<%= top_level %>}
+<% end %>
