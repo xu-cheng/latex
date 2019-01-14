@@ -137,3 +137,20 @@
 <% if name !~ /reviewresponse/ %>
 \numberwithin{equation}{<%= top_level %>}
 <% end %>
+
+
+% Bibliography
+\RequirePackage[
+  style=ieee,
+  doi=false,
+  isbn=false,
+  giveninits=true,
+  dashed=false,
+  maxbibnames=10,
+  mincitenames=1,
+  maxcitenames=1,
+]{biblatex}
+% url break in bibliography
+\setcounter{biburllcpenalty}{1}
+\setcounter{biburlucpenalty}{1}
+\setcounter{biburlnumpenalty}{1}
