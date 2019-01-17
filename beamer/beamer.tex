@@ -143,6 +143,10 @@
 % Bibliography
 \if@biblatex
     \RequirePackage{biblatex}
+    % url break in bibliography
+    \setcounter{biburllcpenalty}{1}
+    \setcounter{biburlucpenalty}{1}
+    \setcounter{biburlnumpenalty}{1}
     \newcommand{\PrintRef}{
         \begingroup
         \setbeamertemplate{frametitle continuation}{}
