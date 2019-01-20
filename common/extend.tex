@@ -19,7 +19,6 @@
 \RequirePackage{tocvsec2}
 \RequirePackage{afterpage}
 \RequirePackage{appendix}
-\RequirePackage[titles]{tocloft}
 \RequirePackage{tocbibind}
 \RequirePackage{footmisc}
 \RequirePackage{fnbreak}
@@ -34,49 +33,10 @@
 % Section & TOC style
 \setcounter{secnumdepth}{3}
 \setcounter{tocdepth}{1}
-\contentsmargin{2.0em}
 
 <% if chapter_defined? %>
 \titleformat{\chapter}{\normalfont\LARGE\bfseries\filcenter}{\chaptertitlename~\thechapter}{1em}{}
 <% end %>
-
-<% if chapter_defined? %>
-\newskip\@oldcftbeforechapskip
-\@oldcftbeforechapskip=\cftbeforechapskip%
-<% end %>
-\newskip\@oldcftbeforesecskip
-\@oldcftbeforesecskip=\cftbeforesecskip%
-\newskip\@oldcftbeforesubsecskip
-\@oldcftbeforesubsecskip=\cftbeforesubsecskip%
-<% if chapter_defined? %>
-\xapptocmd{\l@chapter}{
-    \ifthenelse{\value{tocdepth} > 0}{\cftbeforechapskip=0.25\baselineskip}{}
-}{}{}
-<% end %>
-\xapptocmd{\l@section}{
-<% if chapter_defined? %>
-    \ifthenelse{\value{tocdepth} > 0}{\cftbeforechapskip=\@oldcftbeforechapskip}{}
-<% end %>
-    \ifthenelse{\value{tocdepth} > 1}{\cftbeforesecskip=0.25\baselineskip}{}
-}{}{}
-\xapptocmd{\l@subsection}{
-    \ifthenelse{\value{tocdepth} > 1}{\cftbeforesecskip=\@oldcftbeforesecskip}{}
-    \ifthenelse{\value{tocdepth} > 2}{\cftbeforesubsecskip=0.25\baselineskip}{}
-}{}{}
-\xapptocmd{\l@subsubsection}{
-    \ifthenelse{\value{tocdepth} > 2}{\cftbeforesubsecskip=\@oldcftbeforesubsecskip}{}
-}{}{}
-
-\renewcommand*\cftfigpresnum{\figurename~}
-\newlength{\@cftfignumwidth@tmp}
-\settowidth{\@cftfignumwidth@tmp}{\cftfigpresnum}
-\addtolength{\cftfignumwidth}{\@cftfignumwidth@tmp}
-\renewcommand{\cftfigaftersnumb}{\quad~}
-\renewcommand*\cfttabpresnum{\tablename~}
-\newlength{\@cfttabnumwidth@tmp}
-\settowidth{\@cfttabnumwidth@tmp}{\cfttabpresnum}
-\addtolength{\cfttabnumwidth}{\@cfttabnumwidth@tmp}
-\renewcommand{\cfttabaftersnumb}{\quad~}
 
 % Head & Foot style
 \pagestyle{scrheadings}
