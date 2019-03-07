@@ -17,13 +17,12 @@
 % Font setting
 \ifLuaTeX%
     \RequirePackage{fontspec}
-    \setmainfont[Ligatures={Common,TeX}]{Tex Gyre Termes}
-    \setsansfont[Ligatures={Common,TeX},
-                 BoldFont={Helvetica Neue Bold},
+    \setmainfont{Tex Gyre Termes}
+    \setsansfont[BoldFont={Helvetica Neue Bold},
                  ItalicFont={Helvetica Neue Italic},
                  BoldItalicFont={Helvetica Neue Bold Italic}]{Helvetica Neue}
     \setmonofont{CMU Typewriter Text}
-    \defaultfontfeatures{Scale=MatchLowercase}
+    \defaultfontfeatures{Scale=MatchLowercase,Ligatures={Common,TeX}}
 \else%
     \RequirePackage[utf8]{inputenc}
     \RequirePackage{newtxtext}
