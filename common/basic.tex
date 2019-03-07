@@ -14,6 +14,7 @@
 \RequirePackage{xpatch}
 \RequirePackage{xstring}
 
+<% if category != :beamer %>
 % Font setting
 \ifLuaTeX%
     \RequirePackage{fontspec}
@@ -30,6 +31,7 @@
     \RequirePackage[T1]{fontenc}
     \RequirePackage{textcomp}
 \fi%
+<% end %>
 
 % Better text justifying
 \ifLuaTeX\RequirePackage{luatexbase}\fi% workaround issue: https://tex.stackexchange.com/q/476740/16996

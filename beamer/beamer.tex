@@ -6,7 +6,7 @@
     \@biblatextrue
     \ifthenelse{\equal{#1}{}}{
         \PassOptionsToPackage{style=ieee-alphabetic,giveninits=true,maxnames=10,dashed=false}{biblatex}
-    }{
+        }{
         \PassOptionsToPackage{#1}{biblatex}
     }
 }
@@ -18,105 +18,24 @@
 
 <%= input "./common/basic.tex" %>
 
+% Beamer theme
+\usetheme{metropolis}
+\metroset{block=fill,numbering=fraction}
+\hypersetup{allcolors=structure.fg}
+\RequirePackage{appendixnumberbeamer}
+
 % Justify text inside list environment
 % Ref: http://liam0205.me/2017/04/11/justifying-in-beamer-s-lists/
 \xpatchcmd{\itemize}{\raggedright}{\justifying}{}{}
 \xpatchcmd{\beamer@enum@}{\raggedright}{\justifying}{}{}
 \xpatchcmd{\@@description}{\raggedright}{\justifying}{}{}
 
-% Theorem style
-\setbeamertemplate{theorems}[numbered]
-
-% Beamer style
-\newdimen\beamer@headheight
-\beamer@headheight=0.13\paperwidth%
-\usetheme{Boadilla}
-\usecolortheme{sidebartab}
-\usefonttheme[onlymath]{serif}
-\setbeamerfont{date}{size=\scriptsize,parent=sidebartab}
-\setbeamerfont{section in head/foot}{size=\tiny,series=\normalfont}
-\setbeamerfont{frametitle}{size=\Large,series=\bfseries}
-\setbeamertemplate{itemize items}[circle]
-\setbeamertemplate{enumerate items}[default]
-\setbeamertemplate{blocks}[rounded][shadow=true]
-\setbeamerfont{block title}{size=\small}
-\setbeamerfont{block}{size=\small}
-\setbeamertemplate{caption}[numbered]
-\setbeamerfont{caption}{size=\scriptsize}
-\setbeamercolor{alerted text}{use=structure,fg=structure.fg}
-\setbeamertemplate{section in toc}[sections numbered]
-\setbeamertemplate{subsection in toc}[subsections numbered]
-\defbeamertemplate{subsubsection in toc}{subsubsections numbered}
-{
-    \leavevmode\leftskip=3em%
-    \rlap{\hskip-3em\inserttocsectionnumber.\inserttocsubsectionnumber.\inserttocsubsubsectionnumber}%
-    \inserttocsubsubsection\par
-}
-\setbeamertemplate{subsubsection in toc}[subsubsections numbered]
-\setbeamertemplate{navigation symbols}{}
-\setbeamertemplate{footline}
-{
-    \linethickness{0pt}
-    \framelatex{
-        \begin{beamercolorbox}[leftskip=.3cm,wd=\paperwidth,ht=0.3\beamer@headheight,sep=0.1cm]{Location bar}
-            \usebeamerfont{section in head/foot}%
-            \insertshortauthor~|~\insertshorttitle%
-            \hfill
-            \insertframenumber/\inserttotalframenumber%
-        \end{beamercolorbox}}
-}
-\hypersetup{allcolors=structure.fg}
-
-% Beamer title
-\DeclareDocumentCommand\maketitle{}{
-    \begingroup
-    \setbeamertemplate{footline}
-    {
-        \linethickness{0pt}
-        \framelatex{
-            \begin{beamercolorbox}[leftskip=.3cm,wd=\paperwidth,ht=0.3\beamer@headheight,sep=0.1cm]{Location bar}
-                \usebeamerfont{section in head/foot}%
-                \insertshortauthor~|~\insertshorttitle%
-                \hfill
-            \end{beamercolorbox}}
-    }
-    \begin{frame}
-        \thispdfpagelabel{Title}
-        \hypersetup{pageanchor=false}
-        \titlepage
-    \end{frame}
-    \endgroup
-    \setcounter{framenumber}{0}
-}
-
 % Beamer TOC
 \newcommand{\PrintTOC}{
     \begin{frame}{\contentsname}
-        \bookmark[page=\thepage,level=3]{\contentsname}
-        \tableofcontents[subsectionstyle=hide]
+        \setbeamertemplate{section in toc}[sections numbered]
+        \tableofcontents[hideallsubsections]
     \end{frame}
-}
-
-\newif\if@TOCAtBeginSection
-\@TOCAtBeginSectiontrue
-
-\newcommand{\EnableTOCAtBeginSection}{\@TOCAtBeginSectiontrue}
-\newcommand{\DisableTOCAtBeginSection}{\@TOCAtBeginSectionfalse}
-
-\AtBeginSection[] {
-    \if@TOCAtBeginSection
-        \begin{frame}{\secname}
-            \tableofcontents[sectionstyle=show/shaded,subsectionstyle=hide,subsubsectionstyle=hide]
-        \end{frame}
-    \else\fi
-}
-
-\AtBeginSubsection[] {
-    \if@TOCAtBeginSection
-        \begin{frame}{\secname}{\subsecname}
-            \tableofcontents[sectionstyle=show/hide,subsectionstyle=show/shaded/hide,subsubsectionstyle=hide]
-        \end{frame}
-    \else\fi
 }
 
 % Bibliography
@@ -133,7 +52,7 @@
             \bookmark[page=\thepage,startatroot]{\refname}
             \setbeamertemplate{bibliography item}[text]
             \renewcommand*{\bibfont}{\scriptsize}
-            \printbibliography%
+            \printbibliography[heading=none]%
         \end{frame}
         \endgroup
     }
@@ -141,9 +60,8 @@
 
 % Thanks Q&A page
 \newcommand{\PrintQA}{
-    \begin{frame}
-        \Huge\centering
-        Thanks \\[1ex]
-        Q\&A
+    \begin{frame}[standout]
+        Thanks \\
+        Questions?
     \end{frame}
 }
