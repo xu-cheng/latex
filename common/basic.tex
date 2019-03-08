@@ -5,7 +5,6 @@
 \RequirePackage{calc}
 \RequirePackage{datenumber}
 \RequirePackage{etoolbox}
-\RequirePackage{linegoal}
 \RequirePackage{iftex}
 <% if category != :poster %>
 \RequirePackage{ragged2e}
@@ -13,6 +12,7 @@
 \RequirePackage{xparse}
 \RequirePackage{xpatch}
 \RequirePackage{xstring}
+\ifPDFTeX\RequirePackage{linegoal}\fi
 
 <% if category != :beamer %>
 % Font setting
