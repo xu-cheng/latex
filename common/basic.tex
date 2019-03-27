@@ -89,7 +89,10 @@
     bookmarksnumbered=true,
     bookmarksopen=true,
     bookmarksopenlevel=3,
-<% if category != :beamer %>
+<% if category == :beamer %>
+<% elsif category == :poster %>
+    hidelinks,
+<% else %>
     colorlinks=true,
     allcolors=@linkcolor,
 <% end %>
