@@ -11,11 +11,9 @@ jobs:
       with:
         ruby-version: 2.x
     - name: Build
-      run: |
-        rake
-        tar cvzf templates.tar.gz dist/*
+      run: rake
     - name: Upload files
       uses: actions/upload-artifact@master
       with:
-        name: templates
-        path: templates.tar.gz
+        name: templates.zip
+        path: dist
