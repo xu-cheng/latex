@@ -15,5 +15,5 @@ jobs:
     - name: Upload files
       uses: actions/upload-artifact@master
       with:
-        name: templates.zip
+        name: templates
         path: dist
