@@ -1,10 +1,5 @@
 name: Ruby
 on: [push]
-on:
-	  push:
-	    branches: master
-	  pull_request:
-	    branches: master
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -18,7 +13,7 @@ jobs:
     - name: Build with Rake
       run: rake
     - name: Upload files
-	      uses: actions/upload-artifact@master
-	      with:
-	        name: templates
-	        path: dist/*
+      uses: actions/upload-artifact@master
+      with:
+      	name: templates
+	path: dist/*
