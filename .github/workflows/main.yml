@@ -1,0 +1,19 @@
+name: Github Actions CI
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Set up Git repository
+      uses: actions/checkout@v1
+    - name: Set up Ruby
+      uses: actions/setup-ruby@v1
+      with:
+        ruby-version: 2.x
+    - name: Build
+      run: rake
+    - name: Upload files
+      uses: actions/upload-artifact@master
+      with:
+        name: templates
+        path: dist
