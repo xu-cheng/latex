@@ -1,0 +1,24 @@
+name: Ruby
+on: [push]
+on:
+	  push:
+	    branches: master
+	  pull_request:
+	    branches: master
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Set up Git repository
+      uses: actions/checkout@v1
+    - name: Set up Ruby
+      uses: actions/setup-ruby@v1
+      with:
+        ruby-version: 2.x
+    - name: Build with Rake
+      run: rake
+    - name: Upload files
+	      uses: actions/upload-artifact@master
+	      with:
+	        name: templates
+	        path: dist/*
