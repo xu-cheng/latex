@@ -6,15 +6,30 @@
     \@biblatextrue
     \ifthenelse{\equal{#1}{}}{
         \PassOptionsToPackage{style=ieee-alphabetic,giveninits=true,maxnames=10,dashed=false}{biblatex}
-        }{
+    }{
         \PassOptionsToPackage{#1}{biblatex}
     }
 }
 
+\gdef\@aspectratio{169}
+\DeclareOptionX{aspectratio}{\gdef\@aspectratio{#1}}
+
+\gdef\@fontsize{10pt}
+\DeclareOptionX{8pt}{\gdef\@fontsize{8pt}}
+\DeclareOptionX{9pt}{\gdef\@fontsize{9pt}}
+\DeclareOptionX{10pt}{\gdef\@fontsize{10pt}}
+\DeclareOptionX{11pt}{\gdef\@fontsize{11pt}}
+\DeclareOptionX{12pt}{\gdef\@fontsize{12pt}}
+\DeclareOptionX{14pt}{\gdef\@fontsize{14pt}}
+\DeclareOptionX{17pt}{\gdef\@fontsize{17pt}}
+\DeclareOptionX{20pt}{\gdef\@fontsize{20pt}}
+\DeclareOptionX{smaller}{\gdef\@fontsize{smaller}}
+\DeclareOptionX{bigger}{\gdef\@fontsize{bigger}}
+
 \DeclareOptionX*{\PassOptionsToClass{\CurrentOption}{beamer}}
 \ProcessOptionsX%
 \PassOptionsToPackage{table,dvipsnames}{xcolor}
-\LoadClass[compress,xcolor]{beamer}
+\LoadClass[compress,xcolor,\@fontsize,aspectratio=\@aspectratio]{beamer}
 
 <%= input "./common/basic.tex" %>
 
