@@ -1,0 +1,23 @@
+\RequirePackage{tikz}
+\RequirePackage{tikzpagenodes}
+\usetikzlibrary{%
+  arrows,
+  backgrounds,
+  calc,
+  decorations.markings,
+  decorations.pathreplacing,
+  fit,
+  matrix,
+  patterns,
+  positioning,
+  shapes,
+  shapes.multipart,
+}
+
+\newcommand*\circled[1]{%
+  \scalebox{0.8}{%
+    \tikz[baseline=(char.base)]{%
+      \node[shape=circle,fill,inner sep=2pt] (char) {\textcolor{white}{#1}};
+    }
+  }
+}
