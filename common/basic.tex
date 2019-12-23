@@ -166,8 +166,11 @@
 <% end %>
 
 % Utility function
-\RequirePackage{soul} % offers \hl
+\RequirePackage{soul} % offers \hl, \texthl
+\RequirePackage{todonotes} % offers \todo
+<% if category == :beamer %>
+\presetkeys{todonotes}{inline}{}
+<% end %>
 \newcommand*{\email}[1]{\href{mailto:#1}{\texttt{#1}}}
-\newcommand{\todo}[1]{{\color{red} TODO:\ #1}}
 
 \RequirePackage[export]{adjustbox}
