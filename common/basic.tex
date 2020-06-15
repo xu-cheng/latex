@@ -52,9 +52,12 @@
 <% if category != :beamer %>
 \RequirePackage{bm}
 <% end %>
+
 \RequirePackage{fancynum}
 \setfnumgsym{\,}
-\RequirePackage[ruled,vlined]{algorithm2e}
+
+% Algorithm
+\RequirePackage[ruled,vlined,linesnumbered]{algorithm2e}
 \SetVlineSkip{0pt}
 \SetAlCapNameFnt{\small}
 \SetAlCapFnt{\small}
