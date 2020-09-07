@@ -6,15 +6,18 @@
 \newcounter{@reviewer}
 \newcounter{@comment}[@reviewer]
 
+\define@cmdkey{reviewer}{number}{}
+\define@cmdkey{reviewer}{note}{}
 \NewDocumentCommand\newreviewer{o}{%
     {
+        \IfValueT{#1}{\setkeys{reviewer}{#1}}%
         \large%
         \vskip\topskip%
         \needspace{8\baselineskip}%
-        \refstepcounter{@reviewer}%
+        \ifthenelse{\isundefined{\cmdKV@reviewer@number}}{\refstepcounter{@reviewer}}{\setcounter{@reviewer}{\cmdKV@reviewer@number}}%
         \phantomsection%
         \bookmark[dest=\@currentHref,rellevel=1,keeplevel]{Reviewer \arabic{@reviewer}}%
-        \noindent\bfseries\underline{Reviewer \arabic{@reviewer}\IfValueT{#1}{ #1}}%
+        \noindent\bfseries\underline{Reviewer \arabic{@reviewer}\ifthenelse{\isundefined{\cmdKV@reviewer@note}}{}{ (\cmdKV@reviewer@note)}}%
         \protected@edef\@currentlabelname{Reviewer \arabic{@reviewer}}%
         \par%
         \vskip\topskip%
