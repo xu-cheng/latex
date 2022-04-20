@@ -1,5 +1,8 @@
 <%= input "./article/article.tex" %>
 
+% Ref: hyperref doc "If the final PDF file is going to be merged with another file,"
+\renewcommand*{\HyperDestNameFilter}[1]{\jobname-#1}
+
 \RequirePackage{mdframed}
 \RequirePackage{needspace}
 
